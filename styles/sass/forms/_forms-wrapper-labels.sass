@@ -1,0 +1,65 @@
+$module: '#{$namespace}frm'
+
+// ===== Wrapper labels =====
+// The label that wraps the form elements and
+// display form errors, required field, etc
+
+.#{$module}__lbl
+    direction: $dir
+    display: block
+    margin: 20px auto
+    position: relative
+
+.#{$module}__lbl--error
+    background: $color--barbie
+    padding: 1px
+    border-radius: 3px
+
+.#{$module}__lbl-txt--error
+    display: none
+    color: $color--bleach
+    font-family: $body-font-family
+    font-size: $frm-el-lbl-font-size
+    margin: 3px
+    margin-#{$leading}: $frm-el-x-spacing
+
+    .#{$module}__lbl--medium &
+        font-size: $frm-el-lbl-font-size-medium
+        margin: 3px
+        margin-#{$leading}: $frm-el-x-spacing-medium
+
+    .#{$module}__lbl--small &
+        font-size: $frm-el-lbl-font-size-small
+        margin: 3px
+        margin-#{$leading}: $frm-el-x-spacing-small
+
+    // If we remove the error class from the parent
+    // label with JS, we also hide the error message
+    .#{$module}__lbl--error &
+        display: inline-block
+
+.#{$module}__lbl--required:before
+    color: $color--flame
+    content: '*'
+    font-family: $body-font-family
+    font-size: 25px
+    #{$leading}: $frm-el-x-spacing - 12px
+    position: absolute
+
+    @if ($dir == 'ltr')
+        font-size: 25px
+    @else
+        font-size: 18px
+
+    top: $frm-el-height / 2 - 9px
+    #{$leading}: $frm-el-x-spacing - 12px
+
+.#{$module}__lbl--medium.#{$module}__lbl--required:before
+    font-size: 20px
+    top: $frm-el-height / 2 - 13px
+    #{$leading}: $frm-el-x-spacing - 13px
+
+.#{$module}__lbl--small.#{$module}__lbl--required:before
+    font-size: 15px
+    top: $frm-el-height / 2 - 17px
+    #{$leading}: $frm-el-x-spacing - 15px

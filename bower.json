@@ -1,19 +1,22 @@
 {
-  "name": "floatingLabels",
+  "name": "angular-floating-labels",
   "version": "0.0.0",
+  "homepage": "https://github.com/HichemBenChaaben/angular-floating-labels",
+  "authors": [
+    "HichemBenChaaben <hichem@dubizzle.com>"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
   "dependencies": {
-    "modernizr": "~2.8.3",
-    "jquery": "~2.1.1",
-    "angular-animate": "~1.3.4",
-    "angular-sanitize": "~1.3.4",
-    "angular-ui-router": "~0.2.13",
-    "angular": "~1.3.4"
+    "angular": "~1.3.8"
   },
   "devDependencies": {
-    "angular-mocks": "~1.3.4"
-  },
-  "resolutions": {
-    "jquery": "~2.1.1",
-    "angular": "~1.3.4"
+    "ng-animate-css": "~0.0.4"
   }
 }

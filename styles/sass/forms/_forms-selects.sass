@@ -1,0 +1,106 @@
+$module: '#{$namespace}frm'
+
+// ===== <select> rules =====
+// Browser specific issues are handled with user-agent.js
+.#{$module}__el--sel
+    // looks clickable
+    cursor: pointer
+
+    // selects have a ghost padding, so the indentation is smaller
+    padding-#{$leading}: $frm-el-x-spacing - 4px
+
+    .#{$module}__lbl--medium &
+        padding-#{$leading}: $frm-el-x-spacing-medium - 4px
+
+    .#{$module}__lbl--small &
+        padding-#{$leading}: $frm-el-x-spacing-small - 4px
+
+    // prevents the content getting overlaped with the arrow
+    padding-#{$trailing}: 30px
+
+    // resets the arrow padding on IE
+    .ie8 &, .ie9 &
+        padding-#{$trailing}: 0
+
+    // hides the first OPTION element, only if it has no value
+    & :first-child:not([value]), & :first-child[value=""], & :first-child[value="--"]
+        display: none
+
+    // Firefox for Android needs 5px to ditch the arrow
+    // and an !important declaration on the background
+    [data-useragent*="Mozilla/5.0 (Android; Mobile"] &
+        background: white !important
+
+        // fix !important war
+        &[disabled]
+            background: $color--dust !important
+
+// Firefox is, well, the new IE...
+[data-useragent*="Firefox"] .#{$module}__el--sel
+    // center aligns the text
+    // there is a small difference between Linux' and
+    // Mac's Firefox so this is a value in between
+    padding-top: 18px
+
+    &.js-field-has-value
+        padding-top: 30px !important
+
+    // proprietary selector to remove outlining
+    &:-moz-focusring
+        color: transparent
+        text-shadow: 0 0 0 $color--coal
+
+[data-useragent*="Firefox"] .#{$module}__lbl--medium .#{$module}__el--sel
+    padding-top: 12px
+
+    &.js-field-has-value
+        padding-top: 23px !important
+
+[data-useragent*="Firefox"] .#{$module}__lbl--small .#{$module}__el--sel
+    padding-top: 8px
+
+    &.js-field-has-value
+        padding-top: 15px !important
+
+// Apple's engine doesn't add the ghost padding
+[data-useragent*="Safari"][data-useragent*="OS X"] .#{$module}__el--sel
+    padding-#{$leading}: $frm-el-x-spacing
+
+[data-useragent*="Safari"][data-useragent*="OS X"] .#{$module}__lbl--medium .#{$module}__el--sel
+    padding-#{$leading}: $frm-el-x-spacing-medium
+
+[data-useragent*="Safari"][data-useragent*="OS X"] .#{$module}__lbl--small .#{$module}__el--sel
+    padding-#{$leading}: $frm-el-x-spacing-small
+
+// Arrow
+.#{$module}__sel-arrow:after
+    // no custom arrows for IE or FF, show the default one
+    .ie8 &, .ie9 &, [data-useragent*="Firefox"] &
+        display: none
+        content: none
+
+    // Arrow down from ss-pikachu
+    font-family: ss-pikachu
+    content: '\e63b'
+    font-size: 20px
+    line-height: 0
+    float: $trailing
+    pointer-events: none
+    position: relative
+    color: $color--smog
+
+    // vertically centers (we can't use percentages as the wrapper is fluid)
+    top:  -$frm-el-height / 2
+    #{$trailing}: $frm-el-x-spacing - 10px
+
+.#{$module}__lbl--medium.#{$module}__sel-arrow:after
+    top:  -$frm-el-height-medium / 2
+    #{$trailing}: $frm-el-x-spacing - 12px
+
+.#{$module}__lbl--small.#{$module}__sel-arrow:after
+    top:  -$frm-el-height-small / 2
+    #{$trailing}: $frm-el-x-spacing - 14px
+
+// Hides the default arrow on IE10+
+.#{$module}__el--sel::-ms-expand
+    display: none

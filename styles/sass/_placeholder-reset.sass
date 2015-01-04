@@ -1,0 +1,10 @@
+@mixin placeholder-reset
+    color: $color--smoke
+    font-style: italic
+    font-weight: normal
+    opacity: 1
+    user-select: none
+
+    // Prevents text getting cut in arabic
+    @if ($dir == 'rtl')
+        text-indent: 2px

@@ -1,0 +1,81 @@
+$module: '#{$namespace}frm'
+
+// ===== Floating labels =====
+
+// By default, the labels stay on top of the form element
+.#{$module}__lbl-txt
+    color: $color--smoke
+    font-family: $body-font-family
+    pointer-events: none
+    position: absolute
+    user-select: none
+    white-space: nowrap
+    z-index: 1
+
+    // Makes up for the element border
+    #{$leading}: $frm-el-x-spacing + 1px
+    top: $frm-el-y-spacing
+    font-size: $frm-el-lbl-font-size
+
+    .#{$module}__lbl--medium &
+        #{$leading}: $frm-el-x-spacing-medium + 1px
+        top: $frm-el-y-spacing-medium
+        font-size: $frm-el-lbl-font-size-medium
+
+    .#{$module}__lbl--small &
+        #{$leading}: $frm-el-x-spacing-small + 1px
+        top: $frm-el-y-spacing-small
+        font-size: $frm-el-lbl-font-size-small
+
+// If there's placeholder support, we hide the
+// labels and show slide them right on typing
+
+// Reset the left and use transform transition instead
+.mod-placeholder .#{$module}__lbl-txt
+    #{$leading}: 0
+    opacity: 0
+    transform: translateX(0)
+    transition: all 0.2s ease-in
+
+// js-field-has-value gets added onkeyup/onchange, hence showing the label
+.mod-placeholder
+    .js-field-has-value ~ .#{$module}__lbl-txt
+        opacity: 1
+        @if ($dir == 'ltr')
+            transform: translateX($frm-el-x-spacing + 1px)
+        @else
+            transform: translateX(-($frm-el-x-spacing + 1px))
+
+    .#{$module}__lbl--medium .js-field-has-value ~ .#{$module}__lbl-txt
+
+        @if ($dir == 'ltr')
+            transform: translateX($frm-el-x-spacing-medium + 1px)
+        @else
+            transform: translateX(-($frm-el-x-spacing-medium + 1px))
+
+
+    .#{$module}__lbl--small .js-field-has-value ~ .#{$module}__lbl-txt
+        @if ($dir == 'ltr')
+            transform: translateX($frm-el-x-spacing-small + 1px)
+        @else
+            transform: translateX(-($frm-el-x-spacing-small + 1px))
+
+// Firefox needs an extra pixel
+.mod-placeholder[data-useragent*="Firefox"]
+    .js-field-has-value ~ .#{$module}__lbl-txt
+        @if ($dir == 'ltr')
+            transform: translateX($frm-el-x-spacing + 2px)
+        @else
+            transform: translateX(-($frm-el-x-spacing + 2px))
+
+    .#{$module}__lbl--medium .js-field-has-value ~ .#{$module}__lbl-txt
+        @if ($dir == 'ltr')
+            transform: translateX($frm-el-x-spacing-medium + 2px)
+        @else
+            transform: translateX(-($frm-el-x-spacing-medium + 2px))
+
+    .#{$module}__lbl--small .js-field-has-value ~ .#{$module}__lbl-txt
+        @if ($dir == 'ltr')
+            transform: translateX($frm-el-x-spacing-small + 2px)
+        @else
+            transform: translateX(-($frm-el-x-spacing-small + 2px))

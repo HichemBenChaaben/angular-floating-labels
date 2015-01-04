@@ -1,0 +1,67 @@
+$module: '#{$namespace}frm'
+
+
+// ===== TOOLTIPS =====
+.#{$module}
+    position: relative
+
+.#{$module}__counter
+    position: fixed
+    z-index: 10
+    #{$trailing}: 20px
+    top: 80px
+    width: 90px
+    height: 65px
+    color: $color--bleach
+    text-align: center
+    &:before
+        content: ""
+        width: 0
+        height: 0
+        border-left: 45px solid transparent
+        border-right: 45px solid transparent
+        border-bottom: 65px solid $color--barbie
+        position: absolute
+        top: 0
+        #{$leading}: 0
+    span
+        display: block
+        text-align: center
+        position: relative
+        z-index: 25
+
+    &--number
+        margin-top: 20px
+        font-size: 20px
+
+    &--text
+        font-size: 14px
+
+.#{$module}__tooltip
+    background: $color--sky
+    bottom: 100%
+    color: $color--coal
+    display: none
+    font-family: $body-font-family
+    font-size: 14px
+    margin-bottom: -1px
+    padding: 10px
+    pointer-events: none
+    position: absolute
+    #{$trailing}: 0
+    user-select: none
+    z-index: 1
+
+    // The tippy triangle
+    &:after
+        content: ' '
+        border-left: 10px solid transparent
+        border-right: 10px solid transparent
+        border-top: 10px solid $color--sky
+        position: absolute
+        top: 100%
+        #{$trailing}: 15px
+
+// Shows only on focus
+.#{$module}__el:focus ~ .#{$module}__tooltip
+    display: inline-block

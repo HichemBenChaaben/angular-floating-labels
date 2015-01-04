@@ -1,0 +1,124 @@
+$module: '#{$namespace}frm'
+
+// ----- checkbox and radio inputs -----
+// We style based on both :checked and :not(checked),
+// this way we don't need IE conditionals or modernizr
+// detection for :checked support. Great success!
+
+// This variable controls the size of the components
+$frm-el-bool-size: 25px
+$frm-el-bool-font-size: 1.6rem
+
+// both: hide the original element if there's :checked support
+.#{$module}__el--bool
+    &:checked, &:not(checked)
+        display: none
+
+// both: wrapper label
+.#{$module}__lbl--bool
+    color: $color--soot
+    cursor: pointer
+    height: $frm-el-bool-size
+    vertical-align: middle
+    direction: $dir
+    &:hover .#{$module}__lbl-txt--bool
+        text-decoration: none
+        color: $color--horizon
+
+// both: associated text
+.#{$module}__lbl-txt--bool
+    display: inline-block
+    font-family: $body-font-family
+    font-size: $frm-el-bool-font-size
+    height: $frm-el-bool-size
+    vertical-align: middle
+
+// both: reshaped original element
+.#{$module}__el--bool:checked ~ .#{$module}__lbl-txt--bool:before,
+.#{$module}__el--bool:not(checked) ~ .#{$module}__lbl-txt--bool:before
+    background: $color--bleach
+    border: 1px solid $color--smoke
+    content: ''
+    display: inline-block
+    height: $frm-el-bool-size
+    margin-#{$trailing}: 10px
+    width: $frm-el-bool-size
+
+// checkbox: element is rounded square
+.#{$module}__lbl-txt--bool--check:before
+    border-radius: 2px
+
+// radio: element is round
+.#{$module}__lbl-txt--bool--radio:before
+    border-radius: 50%
+
+// both: allow for transition on check
+.#{$module}__lbl-txt--bool:after
+    content: ''
+    transition: all 0.2s ease-out
+
+// both: the "checked" marker, either a tick or a dot
+.#{$module}__el--bool:checked ~ .#{$module}__lbl-txt--bool:after
+    content: ''
+    pointer-events: none
+    position: absolute
+    z-index: 1
+
+// checkbox: a tick
+.#{$module}__el--bool:checked ~ .#{$module}__lbl-txt--bool--check:after
+    border-bottom: $frm-el-bool-size * 0.125 solid $color--spinach
+    border-left: $frm-el-bool-size * 0.125 solid $color--spinach // geometric shape no rtl
+    height: $frm-el-bool-size * 0.375
+    #{$leading}: $frm-el-bool-size * 0.208
+    top: $frm-el-bool-size * 0.083
+    transform: rotate(-45deg)
+    width: $frm-el-bool-size * 0.875
+
+    // The TOP stroke that goes through the box
+    background: $color--bleach
+
+    // The BOTTOM stroke that goes through the box
+    box-shadow: 0 ($frm-el-bool-size * 0.208) 0 0 $color--bleach
+
+    // IE9 fix
+    .ie9 &
+        direction: ltr
+
+    @if ($dir == 'ltr')
+        #{$leading}: $frm-el-bool-size * 0.208
+    @else
+        #{$leading}: -($frm-el-bool-size * 0.208)
+
+
+// radio: a dot
+.#{$module}__el--bool:checked ~ .#{$module}__lbl-txt--bool--radio:after
+    // The dot size is relative to the container
+    $radio-dot-size: $frm-el-bool-size * 0.416
+
+    background: $color--spinach
+    border-radius: 50%
+    height: $radio-dot-size
+    #{$leading}: ($frm-el-bool-size / 2) - ($radio-dot-size / 2)
+    top: ($frm-el-bool-size / 2) - ($radio-dot-size / 2)
+    width: $radio-dot-size
+
+// both: everything gets translucent
+.#{$module}__el--bool[disabled] ~ .#{$module}__lbl-txt--bool
+    opacity: .5
+    cursor: not-allowed
+    &:hover
+        color: $color--soot
+
+// checkbox: changes the color of the tick and make it stand out
+.#{$module}__el--bool[disabled] ~ .#{$module}__lbl-txt--bool--check:after
+    border-color: $color--smoke
+    opacity: 1
+    &:hover
+        color: $color--soot
+
+// radio: changes the color of the bg and make it stand out
+.#{$module}__el--bool[disabled] ~ .#{$module}__lbl-txt--bool--radio:after
+    background: $color--smoke
+    opacity: 1
+    &:hover
+        color: $color--soot

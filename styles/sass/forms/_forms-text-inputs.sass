@@ -1,0 +1,9 @@
+$module: '#{$namespace}frm'
+
+// ===== <input type="[text|email|tel..." /> rules =====
+.#{$module}__el--txt
+    padding-#{$leading}: $frm-el-x-spacing
+    .#{$module}__lbl--medium &
+        padding-#{$leading}: $frm-el-x-spacing-medium
+    .#{$module}__lbl--small &
+        padding-#{$leading}: $frm-el-x-spacing-small

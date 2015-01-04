@@ -1,0 +1,117 @@
+// -----------------------------------
+// Switches
+// TODO: mix with _forms-booleans.sass
+
+$switch-height: 37px
+$switch-width: 90px
+$button-gap: 2px
+$button-width: ($switch-width / 2) - $button-gap
+
+// ------------------------------------
+// Hides the default checkbox element
+.#{$module}__el--switch
+    &:checked, &:not(checked)
+        display: none
+
+// ------------------------------------
+// The wrapper label element
+.#{$module}__lbl--switch
+    color: $color--soot
+    cursor: pointer
+    font-family: $body-font-family
+    font-size: 16px
+    height: $switch-height
+    line-height: $switch-height + $button-gap
+    padding-#{$leading}: $switch-width + 10px
+    position: relative
+
+    // Default style for both the ON/OFF text
+    &:before, &:after
+        width: $button-width
+        display: inline-block
+        position: absolute
+        text-align: center
+        line-height: $switch-height + $button-gap
+        color: $color--bleach
+        z-index: 2
+
+    // For the ON bit (left side)
+    &:before
+        content: attr(data-checked-text)
+        #{$leading}: 0
+
+    // For the OFF bit (right side)
+    &:after
+        content: attr(data-unchecked-text)
+        #{$leading}: $button-width + $button-gap
+
+// ------------------------------------
+// The fake wrapper, the one that gets
+// its color changed as we toggle the
+// switch.
+.#{$module}__el--switch-wrapper:before
+    content: ''
+    background: $color--fog
+    box-shadow: inset 0px 1px 0px 0px rgba(0,0,0,0.2)
+    border-radius: 2px
+    position: absolute
+    z-index: 1
+    top: 0
+    left: 0
+    right: 0
+    bottom: 0
+    transition: all 0.2s ease-out
+    height: $switch-height
+    width: $switch-width
+    color: $color--bleach
+    font-weight: bold
+
+// Changes the background to green on check
+.#{$module}__el--switch:checked ~ .#{$module}__el--switch-wrapper:before
+    background: $color--spinach
+
+// ------------------------------------
+// The fake switch button
+.#{$module}__el--switch-wrapper:after
+    content: ''
+    transition: all 0.2s ease-out
+
+    // Half the width of the parent, minus gap difference for each side)
+    width: $button-width
+
+    // Total height of the parent minus the gap on each side
+    height: $switch-height - ($button-gap * 2)
+
+    // Vertically centers the button
+    top: $button-gap
+
+    #{$leading}: $button-gap
+    background: #FFFFFF
+    position: absolute
+    z-index: 2
+    box-shadow: 0px 1px 0px 0px rgba(0,0,0,0.2)
+    cursor: pointer
+    border-radius: 2px
+    border: 0
+    outline: none
+
+// Slides the switch right when toggling
+.#{$module}__el--switch:checked ~ .#{$module}__el--switch-wrapper:after
+    #{$leading}: ($switch-width - $button-width) - $button-gap
+
+// Scales it down on hover
+.#{$module}__lbl--switch:hover .#{$module}__el--switch-wrapper:after
+    transform: scale(.95,.95)
+
+// ------------------------------------
+// Disabled styles
+.#{$module}__el--switch[disabled] ~ .#{$module}__el--switch-wrapper:before
+    cursor: not-allowed
+    box-shadow: none
+    background: $color--dust
+
+.#{$module}__el--switch:checked[disabled] ~ .#{$module}__el--switch-wrapper:before
+    background: $color--slime
+
+.#{$module}__el--switch[disabled] ~ .#{$module}__el--switch-wrapper:after
+    box-shadow: none

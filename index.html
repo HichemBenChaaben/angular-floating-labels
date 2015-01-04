@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html class="mod-placeholder">
+<head>
+  <title>Angular floating labels</title>
+  <link rel="stylesheet" type="text/css" href="styles/css/layout.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="styles/css/main.css">
+</head>
+  <body ng-app="app">
+    <div class="container-fluid header">
+      <h1>Angular floating labels aka fl-label</h1>
+      <h2>What is the floating labels pattern ?</h2>
+      <p>A cool compact design pattern for forms to leverge the user experience for your forms !</p>
+
+      <h2>Angular fl-label</h2>
+      <p>fl-label is an angular standalone module that uses custom directives</p>
+      <h3>Installation</h3>
+      <code class="language-html">
+          bower install angular-fl-labelsl --save-dev
+      </code>
+      <h3>Pre requistics</h3>
+      <p>Make sure you have modernizr and you detect placholders, modernizr adds a class called mod-placholder to the html tag then you're done</p>
+
+      <h3>Usage</h3>
+      <code>
+          <input type="text" placholder="Your should have a placeholder" fl-label/>
+      </code>
+    </div>
+
+    <div class="container-fluid">
+      <div ui-view></div>
+    </div>
+    <!-- Include angular js-->
+    <script src="bower_components/angular/angular.min.js"></script>
+    <script src="bower_components/ui-router/release/angular-ui-router.min.js"></script>
+    <script src="bower_components/angular-animate/angular-animate.min.js"></script>
+    <script src="src/app.js"></script>
+    <script src="src/controllers/main.js"></script>
+    <script src="src/controllers/forms.js"></script>
+    <script src="src/directives/angular-floating-labels.js"></script>
+  </body>
+</html>

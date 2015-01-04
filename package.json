@@ -1,0 +1,25 @@
+{
+  "name": "angular-floating-labels",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/HichemBenChaaben/angular-floating-labels.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/HichemBenChaaben/angular-floating-labels/issues"
+  },
+  "homepage": "https://github.com/HichemBenChaaben/angular-floating-labels",
+  "devDependencies": {
+    "gulp": "^3.8.10",
+    "gulp-autoprefixer": "^2.0.0",
+    "gulp-jshint": "^1.9.0",
+    "gulp-ruby-sass": "^0.7.1"
+  }
+}

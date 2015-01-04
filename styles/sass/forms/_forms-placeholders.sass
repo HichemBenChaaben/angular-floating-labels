@@ -1,0 +1,22 @@
+// ===== Placeholder styles and resets =====
+
+// We can't extend as the ::-prefix selectors need to be individual
+
+@import ../placeholder-reset
+
+// this class is applied on SELECT elements with JS
+.placeholder
+    +placeholder-reset
+
+// Resets the placeholders
+input-placeholder
+    +placeholder-reset
+
+::-webkit-input-placeholder
+    +placeholder-reset
+
+::-moz-placeholder
+    +placeholder-reset
+
+\:-ms-input-placeholder
+    +placeholder-reset

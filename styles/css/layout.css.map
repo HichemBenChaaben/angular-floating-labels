@@ -1,7 +1,9 @@
 {
   "version": 3,
-  "mappings": "",
-  "sources": [],
+  "mappings": "AAkBA,UAAU;EACR,gBAAgB,EAHT,OAAO;;AAKhB,OAAO;EACL,gBAAgB,EAAE,kBAAqB;EACvC,KAAK,EAAE,KAAK;EACZ,eAAO;IACL,aAAa,EAAE,CAAC;;AACpB,SAAS;EACP,gBAAgB,EAhBP,OAAO;EAiBhB,KAAK,EAAE,KAAK;EACZ,UAAU,EAAE,MAAM;EAClB,gBAAM;IACJ,KAAK,EAAE,KAAK;IACZ,gBAAgB,EAzBX,OAAO;;AA2BhB,UAAU;EACR,gBAAgB,EAvBT,OAAO;EAwBd,MAAM,EAAE,gBAAgB;EACxB,MAAM,EAAE,CAAC;EACT,KAAK,EAAE,IAAI",
+  "sources": [
+    "styles/sass/*.sass/layout.sass"
+  ],
   "names": [],
   "file": "layout.css"
 }

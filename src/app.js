@@ -19,6 +19,12 @@
         $stateProvider.
           state('home', {
             url: '/',
+            controller: 'mainCtrl',
+            controllerAs: 'fm',
+            templateUrl: 'src/views/main.html'
+          })
+          .state('examples', {
+            url: '/examples',
             controller: 'FormsCtrl',
             controllerAs: 'fm',
             templateUrl: 'src/views/forms.html'

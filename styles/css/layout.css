@@ -1,3 +1,24 @@
+html, body {
+  background-color: #bdc3c7; }
 
+.header {
+  background-color: #16a085 !important;
+  color: white; }
+  .header .navbar {
+    border-radius: 0; }
+
+.jumbtron {
+  background-color: #e74c3c;
+  color: white;
+  text-align: center; }
+  .jumbtron button {
+    color: white;
+    background-color: #2980b9; }
+
+.container {
+  background-color: #ecf0f1;
+  border: 2px thin #bdc3c7;
+  margin: 0;
+  width: 100%; }
 
 /*# sourceMappingURL=layout.css.map */

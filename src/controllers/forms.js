@@ -3,7 +3,7 @@
 
   angular.module('app').controller('FormsCtrl', fm);
 
-  fm.$inject = ['$scope'];
+  fm.$inject = ['$scope', '$location', '$anchorScroll'];
 
   function fm($scope) {
     var vm = this;
@@ -14,6 +14,13 @@
 
     $scope.whatever = 'whatever placholder';
     $scope.tl = 'whatever tooltip';
+
+    // Anchor scroll function
+    vm.scrollTo = function(id) {
+      $location.hash(id);
+      $anchorScroll();
+    }
+
   };
 
 })();

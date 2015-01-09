@@ -1,34 +1,52 @@
 (function() {
-  'use strict';
 
-  /**
-   * @ngdoc overview
-   * @name quizApp
-   * @description
-   * quizApp
-   *
-   * Main module of the application.
-   */
+    'use strict';
 
-  angular
+    /**
+     * @ngdoc overview
+     * @name angular floating labels
+     * @description
+     * angular floting labels
+     */
+
+    angular
       .module('app', [
           'ui.router',
-          'app.directives.floatinglabels'
+          'app.directives.floatinglabels',
+          'hljs'
       ])
-      .config(function($stateProvider, $urlRouterProvider) {
+      .config(function($stateProvider, $urlRouterProvider, hljsServiceProvider) {
+        // headghlightjs configuration
+        // replace tab with 4 spaces
+        hljsServiceProvider.setOptions({
+          tabReplace: '  ',
+          languages: 'html javascript'
+        });
+
         $stateProvider.
-          state('home', {
-            url: '/',
-            controller: 'mainCtrl',
-            controllerAs: 'fm',
-            templateUrl: 'src/views/main.html'
-          })
-          .state('examples', {
-            url: '/examples',
-            controller: 'FormsCtrl',
-            controllerAs: 'fm',
-            templateUrl: 'src/views/forms.html'
-          });
+        state('home', {
+          url: '/',
+          controller: 'MainCtrl',
+          controllerAs: 'fm',
+          templateUrl: 'src/views/main.html'
+        })
+        .state('components', {
+          url: '/components',
+          controller: 'FormsCtrl',
+          controllerAs: 'fm',
+          templateUrl: 'src/views/components.html'
+        })
+        .state('contact', {
+          url: '/contact',
+          controllerAs: 'cm',
+          controller: 'ContactCtrl',
+          templateUrl: 'src/views/contact.html'
+        })
+        .state('cs', {
+          url: '/floating-labels-contributors',
+          controllerAs: 'cs',
+          templateUrl: 'src/views/contributors.html'
+        });
         $urlRouterProvider.otherwise('/');
       });
 

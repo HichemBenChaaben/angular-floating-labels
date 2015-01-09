@@ -1,19 +1,33 @@
 html, body {
-  background-color: #bdc3c7; }
+  background-color: white; }
 
 .header {
   background-color: #16a085 !important;
   color: white; }
   .header .navbar {
-    border-radius: 0; }
+    border-radius: 0;
+    margin-bottom: 0; }
 
-.jumbtron {
-  background-color: #e74c3c;
+.jumb {
   color: white;
-  text-align: center; }
-  .jumbtron button {
+  background-color: #e74c3c !important;
+  text-align: center;
+  padding-bottom: 20px; }
+  .jumb button {
     color: white;
     background-color: #2980b9; }
+  .jumb .cards {
+    margin: 0 auto;
+    text-align: center; }
+  .jumb .card {
+    font-size: 42px;
+    text-align: center;
+    padding: 25px;
+    margin: 10px auto; }
+  .jumb .thumbnail {
+    border: 0;
+    background-color: transparent;
+    text-align: center; }
 
 .container {
   background-color: #ecf0f1;

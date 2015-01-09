@@ -42,9 +42,12 @@
           controller: 'ContactCtrl',
           templateUrl: 'src/views/contact.html'
         })
+        .state('demo', {
+          url: 'demo',
+          templateUrl: 'src/views/demo.html'
+        })
         .state('cs', {
           url: '/floating-labels-contributors',
-          controllerAs: 'cs',
           templateUrl: 'src/views/contributors.html'
         });
         $urlRouterProvider.otherwise('/');

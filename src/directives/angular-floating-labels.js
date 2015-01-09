@@ -19,10 +19,27 @@
               requiredClass = "";
             }
 
+            console.log($attrs);
+
+            if($attrs.maxLength) {
+              console.log('You have max length here ..');
+             //bindKeyCount($element);
+            }
+
             $element.wrap('<label class="fl-frm__lbl ' + requiredClass + '">')
               .addClass('fl-frm__el fl-frm__el--txt')
               .after('<span class="fl-frm__lbl-txt">' + placeholderVal +'</span>')
               .after('<span class="fl-frm__lbl-txt--error">Only numbers are allowed</span>');
+
+            if ($attrs.maxLength) {
+              $element.after('<span class="js-char-counter"><span class="ccount" data-current-char-count="">' + $element[0].value.length + '</span> / ' + $attrs.maxLength + '</span>');
+            }
+
+            function keyBindInput() {
+              $element.keyup(function() {
+                console.log($attrs.val.length);
+              });
+            };
 
             // If we are on the edit mode we should add the label
             if($attrs.value && $attrs.value.length > 0) {
@@ -30,7 +47,19 @@
             }
             // If we type a key we add the floating label
             $element.bind('keyup blur', function(event) {
-              return event.target.value.length ? $element.addClass('js-field-has-value') : $element.removeClass('js-field-has-value');
+              if($attrs.maxLength) {
+                var charCount = $element[0].value.length;
+                $scope.apply(function(oldValue, newValue) {
+                  //$element[0].value.length = charCount;
+                  console.log(charCount + ' ' + oldValue + ' ' + newValue);
+                });
+              }
+              // if user types we add or remove a class
+              if (event.target.value.length) {
+                $element.addClass('js-field-has-value');
+              } else {
+                $element.removeClass('js-field-has-value');
+              }
             });
           }
         };

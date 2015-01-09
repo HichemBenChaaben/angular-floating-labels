@@ -5,12 +5,14 @@
       <input name="name" fl-label placeholder="your name" fl-tip="Enter your name"/>
       <input name="email" fl-label type="email" placeholder="your email" fl-tip="Enter your valid email"/>
       <input type="phone" fl-label placeholder="Enter your phone" fl-tip="Enter your valid phone number"/>
-      <select fl-label placeholder="xxx">
-        <option value="" default placeholder="xxx">Your profession</option>
-        <option value="Web designer">ooo</option>
-        <option value="Web developer"></option>
-        <option value="Backend engineer"></option>
-      </select>
+      <input name="subject"
+             fl-label
+             max-length="60"
+             placeholder="Subject of the communication"
+             fl-tip="Do not exceed 60 characters"
+             fl-error="Chars exceeded"
+             autofocus
+             />
       <button type="submit">Submit</button>
     </form>
   </div>

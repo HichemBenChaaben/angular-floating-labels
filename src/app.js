@@ -24,9 +24,9 @@
         });
 
         $stateProvider.
-        state('demo', {
+        state('home', {
           url: '/',
-          templateUrl: 'src/views/demo.html'
+          templateUrl: 'src/views/main.html'
         })
         .state('components', {
           url: '/components',
@@ -39,6 +39,10 @@
           controllerAs: 'cm',
           controller: 'ContactCtrl',
           templateUrl: 'src/views/contact.html'
+        })
+        .state('demo', {
+          url: 'demo',
+          templateUrl: 'src/views/demo.html'
         })
         .state('cs', {
           url: '/floating-labels-contributors',

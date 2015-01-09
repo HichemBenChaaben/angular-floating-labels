@@ -17,6 +17,7 @@
     "angular": "~1.3.8"
   },
   "devDependencies": {
-    "ng-animate-css": "~0.0.4"
+    "ng-animate-css": "~0.0.4",
+    "angular-highlightjs": "~0.3.2"
   }
 }

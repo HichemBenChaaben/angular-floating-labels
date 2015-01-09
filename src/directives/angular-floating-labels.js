@@ -5,36 +5,36 @@
       function() {
         // Runs during compile
         return {
-            restrict: 'A',
-            transclude: true,
-            priority: 1,
-            link: function($scope, $element, $attrs) {
-              // if the placholder is not specified by the controller scope then it will pickup
-              // the one statically existing on the page otheriwse the directive default will be
-              // assigned to the placeholder
-              var placeholderVal = $attrs.placeholder || $scope.customPlaceholder;
-              var requiredClass = 'fl-frm__lbl--required';
+          restrict: 'A',
+          transclude: true,
+          priority: 1,
+          link: function($scope, $element, $attrs) {
+            // if the placholder is not specified by the controller scope then it will pickup
+            // the one statically existing on the page otheriwse the directive default will be
+            // assigned to the placeholder
+            var placeholderVal = $attrs.placeholder || $scope.customPlaceholder;
+            var requiredClass = 'fl-frm__lbl--required';
 
-              if(!$attrs.required) {
-                requiredClass = "";
-              }
-
-              $element.wrap('<label class="fl-frm__lbl ' + requiredClass + '">')
-                .addClass('fl-frm__el fl-frm__el--txt')
-                .after('<span class="fl-frm__lbl-txt">' + placeholderVal +'</span>')
-                .after('<span class="fl-frm__lbl-txt--error">Only numbers are allowed</span>');
-
-              // If we are on the edit mode we should add the label
-              if($attrs.value && $attrs.value.length > 0) {
-                $element.addClass('js-field-has-value');
-              }
-              // If we type a key we add the floating label
-              $element.bind('keyup blur', function(event) {
-                return event.target.value.length ? $element.addClass('js-field-has-value') : $element.removeClass('js-field-has-value');
-              });
+            if(!$attrs.required) {
+              requiredClass = "";
             }
-          };
-        }
+
+            $element.wrap('<label class="fl-frm__lbl ' + requiredClass + '">')
+              .addClass('fl-frm__el fl-frm__el--txt')
+              .after('<span class="fl-frm__lbl-txt">' + placeholderVal +'</span>')
+              .after('<span class="fl-frm__lbl-txt--error">Only numbers are allowed</span>');
+
+            // If we are on the edit mode we should add the label
+            if($attrs.value && $attrs.value.length > 0) {
+              $element.addClass('js-field-has-value');
+            }
+            // If we type a key we add the floating label
+            $element.bind('keyup blur', function(event) {
+              return event.target.value.length ? $element.addClass('js-field-has-value') : $element.removeClass('js-field-has-value');
+            });
+          }
+        };
+      }
     )
     // Adding a tooltip directive
     .directive('flTip', function() {
@@ -68,17 +68,6 @@
                 .after('<span class="fl-frm__lbl-txt">' + placeholderVal +'</span>');
         }
       }
-
-      // <label class="u-frm__lbl u-frm__sel-arrow u-frm__lbl--required">
-      //                 <select class="u-frm__el u-frm__el--sel placeholder">
-      //                     <option value="--" disabled="disabled">-- Default select --</option>
-      //                     <option value="1">Bad</option>
-      //                     <option value="2">Average</option>
-      //                     <option value="3">Really long description to check if it cuts through</option>
-      //                 </select>
-      //                 <span class="u-frm__lbl-txt">Default select</span>
-      //                 <span class="u-frm__tooltip">Here's a handy little hint</span>
-      //             </label>
     });
 
 })();

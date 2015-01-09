@@ -38,6 +38,11 @@
     <!-- Menu here -->
   </div>
   <div class="col-xs-9">
+    <h2>Angular floating labels are custom directives</h2>
+    <div class="bs-callout bs-callout-info" id="callout-inputgroup-form-labels">
+      <p>Add always <code>fl-label</code> attribute to the input element, you don't need to use the<code>label</code>element.<br/>
+      For the input elements and textareas, the placeholder attribute is going to act like a label and for the select elements the first option is going to act like a label.
+    </div>
     <form name="myform">
       <!-- First prototype not changing the elments -->
       <h2 id="input-text">Simple input text</h2>
@@ -53,22 +58,38 @@
 <input fl-label="text" required="required" name="name" placeholder="i'm a placeholder"/>
       </div>
       <input fl-label="text" required name="name" placeholder="i'm a placeholder"/>
-      <span>
-        <span class="fa fa-lightbulb-o">&nbsp;</span>
-        <span>Customize the required css class</span>
-      </span>
       <div class="alert alert-info">
+        <span>
+          <span class="fa fa-lightbulb-o">&nbsp;</span>
+          <b>Customize the required css class</b>
+        </span>
         <p>
-          Part of the floating label pattern, we need to show the user an indication that the form is required, anyways you can stick to your own visual design or idea by overriding the css class .fl-frm__lbl--required:before
+          You can override the css class .fl-frm__lbl--required:before<br/>
+          The required styles are part of the floating label pattern but still you can change the default ones and add your own styles.
         </p>
       </div>
-      <br/>
-      <h3 id="input-text-tooltip">Input text with toolip (with *required)</h3>
-      <input name="tooltip"
+      <h3 id="input-text-tooltip">Input text with toolip</h3>
+      <div hljs language="html">
+<input fl-label name="tooltip"
              placeholder="i'm the placeholder"
              fl-tip="I'm the tooltip"
-             required
-             fl-label />
+             required="required"/>
+      </div>
+      <input fl-label="text"
+             name="tooltip"
+             placeholder="i'm the placeholder"
+             fl-tip="I'm the tooltip"
+             required="required"/>
+      <div class="alert alert-info">
+        <span>
+          <span class="fa fa-lightbulb-o">&nbsp;</span>
+          <b>Customize the required css class</b>
+        </span>
+        <p>
+          You can override the css class .fl-frm__tooltip<br/>
+          If you are have your own tooltips you can still use them the way you want and you can also modify the default ones like changing font-size or colors maintaing your own styles.
+        </p>
+      </div>
 
       <h2>Input with a tooltip</h2>
       <input name="input-with-tooltip"

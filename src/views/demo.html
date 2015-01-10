@@ -2,9 +2,20 @@
 <div class="row">
   <div class="col-md-12">
     <form novalidate>
-      <input name="name" fl-label placeholder="your name" fl-tip="Enter your name"/>
-      <input name="email" fl-label type="email" placeholder="your email" fl-tip="Enter your valid email"/>
-      <input type="phone" fl-label placeholder="Enter your phone" fl-tip="Enter your valid phone number"/>
+      <input name="name"
+             fl-label
+             placeholder="your name"
+             fl-tip="Enter your name"
+             maxlength="60" />
+      <input name="email"
+             fl-label
+             type="email"
+             placeholder="your email"
+             fl-tip="Enter your valid email"/>
+      <input type="phone"
+             fl-label
+             placeholder="Enter your phone"
+             fl-tip="Enter your valid phone number"/>
       <select fl-label placeholder="xxx">
         <option value="" default placeholder="xxx">Your profession</option>
         <option value="Web designer">ooo</option>

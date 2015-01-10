@@ -24,11 +24,9 @@
         });
 
         $stateProvider.
-        state('home', {
+        state('demo', {
           url: '/',
-          controller: 'MainCtrl',
-          controllerAs: 'fm',
-          templateUrl: 'src/views/main.html'
+          templateUrl: 'src/views/demo.html'
         })
         .state('components', {
           url: '/components',
@@ -41,10 +39,6 @@
           controllerAs: 'cm',
           controller: 'ContactCtrl',
           templateUrl: 'src/views/contact.html'
-        })
-        .state('demo', {
-          url: 'demo',
-          templateUrl: 'src/views/demo.html'
         })
         .state('cs', {
           url: '/floating-labels-contributors',

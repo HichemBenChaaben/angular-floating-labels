@@ -1,13 +1,35 @@
 $namespace: 'fl-'
-$dir: ltr
-$leading: 'left'
-$trailing: 'right'
-$body-font-family: 'arial', sans-serif
 
-@import normalize
-@import colors
+// ==== Support Flags ==== //
+// if you have normalize in the project
+$use-normalize: true
+// if you want to use your media queries
+$use-breakpoint: true
+
+
+// === Default fonts and branding === //
+$body-font-family: 'arial', sans-serif
+$use-branding: true
+
+// === Usage of css-flipper of the standard solution === //
+$auto-flip-css: false
+
+if($auto-flip-css === false)
+    $dir: ltr
+    $leading: 'left'
+    $trailing: 'right'
+
+if($use-normalize)
+    @import normalize
+
+if($use-breakpoint)
+    @import breakpoint
+
+
+if($use-branding)
+    @import colors
+
 @import mixins
-@import breakpoint
 @import forms/forms
 @import forms/forms-booleans
 @import forms/forms-char-counter
@@ -19,4 +41,3 @@ $body-font-family: 'arial', sans-serif
 @import forms/forms-textareas
 @import forms/forms-tooltips
 @import forms/forms-wrapper-labels
-

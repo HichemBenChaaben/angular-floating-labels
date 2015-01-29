@@ -1,18 +1,23 @@
 var gulp = require('gulp'),
+    jhinst
     jshint = require('gulp-jshint'),
     sass = require('gulp-ruby-sass'),
     autoprefixer = require('gulp-autoprefixer'),
-    uglify = require('gulp-uglify');
+    uglify = require('gulp-uglify'),
+    jscs = require('gulp-jscs');
+
 
 // Paths of the app
 var sassSrc = './styles/sass/*.sass';
 var cssDest = './styles/css';
 var jsDist = './scripts';
 
+
+
 // Sass task with
 gulp.task('styles', function() {
   return gulp.src(sassSrc)
-    .pipe(sass({sourcemap: true, sourcemapPath: sassSrc}))
+    .pipe(sass())
     .on('error', function(err) {
       console.log(err.message);
     })
@@ -31,9 +36,9 @@ gulp.task('autoprefixer', function() {
 
 
 gulp.task('jshint', function() {
-  return gulp.src('./src/*.js')
-    .pipe(jshint())
-    .pipe(jshint.reporter('default'));
+  return gulp.src('./src/**/*.js')
+    .pipe(jshint('.jshintrc'))
+    .pipe(jshint.reporter('jshint-stylish'));
 });
 
 gulp.task('compress:js', function() {
@@ -42,23 +47,16 @@ gulp.task('compress:js', function() {
     .dest(gulp.dest(jsDist)); // save the stream into dist folder
 });
 
-gulp.task('uglify:build', function() {
-  // uglify task for the build
-});
-
-gulp.task('copy:css', function() {
-  // copy css to the build folder
-});
-
-gulp.task('build', ['compress:js:build'], function() {
-  // build task copy files to the build folder as min and src
-});
-
 gulp.task('watch', ['styles', 'autoprefixer', 'jshint'], function() {
   gulp.watch('./styles/sass/*.sass', ['styles', 'autoprefixer']);
   gulp.watch('./src/*.js', ['jshint']);
 });
 
+gulp.task('watch:js', ['jshint'], function() {
+  gulp.watch('./src/*.js');
+});
+
+gulp.task('jslint', ['jshint', 'watch:js']);
 gulp.task('default', function() {
   console.log('default task here');
 });

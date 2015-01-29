@@ -4,24 +4,38 @@
     <form novalidate>
       <input name="name"
              fl-label
-             placeholder="your name"
+             maxlength="60"
              fl-tip="Enter your name"
-             maxlength="60" />
+             placeholder="your name"
+             fl-count
+             />
       <input name="email"
              fl-label
+             fl-count
              type="email"
              placeholder="your email"
-             fl-tip="Enter your valid email"/>
+             fl-tip="Enter your valid email"
+             maxlength="25" />
       <input type="phone"
              fl-label
              placeholder="Enter your phone"
              fl-tip="Enter your valid phone number"/>
-      <select fl-label placeholder="xxx">
-        <option value="" default placeholder="xxx">Your profession</option>
+      <select fl-label placeholder="Your profession">
         <option value="Web designer">ooo</option>
-        <option value="Web developer"></option>
-        <option value="Backend engineer"></option>
+        <option value="Web developer">cccc</option>
+        <option value="Backend engineer">yyyy</option>
       </select>
+
+      <label class="fl-frm__lbl fl-frm__sel-arrow fl-frm__lbl--required">
+        <select class="fl-frm__el fl-frm__el--sel placeholder js-field-has-value">
+          <option value="--" disabled="disabled">-- Default select --</option>
+          <option value="1">Bad</option>
+          <option value="2">Average</option>
+          <option value="3">Really long description to check if it cuts through</option>
+        </select>
+        <span class="fl-frm__lbl-txt">Default select</span>
+        <span class="fl-frm__tooltip">Here's a handy little hint</span>
+      </label>
       <button type="submit">Submit</button>
     </form>
   </div>

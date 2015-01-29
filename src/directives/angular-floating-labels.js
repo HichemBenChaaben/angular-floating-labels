@@ -2,22 +2,17 @@
   'use strict';
   angular.module('app.directives.floatinglabels', [])
     .directive('flLabel',
-      function() {
-        // Runs during compile
+      function($document) {
         return {
           restrict: 'EA',
           priority: 1,
           trasclude: true,
-          scope: {
-            ccount: '&'
-          },
           link: function($scope, $element, $attrs) {
             // if the placholder is not specified by the controller scope then it will pickup
             // the one statically existing on the page otheriwse the directive default will be
             // assigned to the placeholder
             var placeholderVal = $attrs.placeholder || $scope.customPlaceholder;
             var requiredClass = 'fl-frm__lbl--required';
-            var ccount = 0;
 
             if(!$attrs.required) {
               requiredClass = "";
@@ -28,39 +23,50 @@
               .after('<span class="fl-frm__lbl-txt">' + placeholderVal +'</span>')
               .after('<span class="fl-frm__lbl-txt--error">Only numbers are allowed</span>');
 
-            if($attrs.value) {
-              // set cccount the length if exist or 0
-              var ccount = $attrs.value.length;
-            }
-
-            // if Max length is defined then we put a counter to display allowed char numbers
-            if($attrs.maxlength) {
-              $element.after('<span class="js-char-counter"><span id="ccount">' + ccount + '</span>/' + $attrs.maxlength + '</span>');
-            }
-
             // If we are on the edit mode we should add the label
             if($attrs.value && $attrs.value.length > 0) {
               $element.addClass('js-field-has-value');
             }
 
             // If we type a key we add the floating label
-            $element.bind('keyup keydown blur', function(event) {
+            $element.bind('keyup blur', function(event) {
               if(event.target.value.length) {
                 $element.addClass('js-field-has-value').once;
               } else {
                 $element.removeClass('js-field-has-value');
               }
             });
-
-            // if we do have maxlength then we can ccount the elements on type
-            $element.bind('keydown', function(event) {
-              return($attrs.maxlength ? angular.element(document.getElementById('ccount')).html(event.target.value.length) : false);
-            });
-
           }
         };
       }
     );
+
+    // Key count
+    angular.module('app.directives.floatinglabels')
+      .directive('flCount', function() {
+        return {
+          restrict: 'EA',
+          priority: 3,
+          link: function($scope, $element, $attrs) {
+
+            if (!$attrs.maxlength) {
+              return;
+            }
+
+            var count = $attrs.maxlength;
+
+            $element.after('<span class="js-char-counter">'+count+'</span>');
+
+            $element.bind('keyup', function(event) {
+              console.log(event.target.value.length);
+              $element.find('.js-char-counter').remove();
+              $element.find('<span class="js-char-counter">' + count - event.target.value.length + '</span>');
+            });
+
+          }
+        }
+      });
+
     // Adding a tooltip directive
     angular.module('app.directives.floatinglabels')
       .directive('flTip', function() {

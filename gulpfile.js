@@ -5,14 +5,14 @@ var gulp = require('gulp'),
     uglify = require('gulp-uglify');
 
 // Paths of the app
-var sassSrc = './styles/sass/*.sass';
-var cssDest = './styles/css';
+var sassSrc = './styles/sass/**/*.sass';
+var cssDest = './styles/css/';
 var jsDist = './scripts';
 
 // Sass task with
 gulp.task('styles', function() {
   return gulp.src(sassSrc)
-    .pipe(sass({sourcemap: true, sourcemapPath: sassSrc}))
+    .pipe(sass())
     .on('error', function(err) {
       console.log(err.message);
     })

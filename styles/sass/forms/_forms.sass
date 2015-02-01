@@ -24,6 +24,9 @@ $frm-el-y-spacing: 8px
 $frm-el-y-spacing-medium: 6px
 $frm-el-y-spacing-small: 4px
 
+// Border radius value
+$frm-el-border-radius: 4px
+
 .#{$module}__el
     // resets browser specific styles
     +reset-appearence
@@ -40,14 +43,15 @@ $frm-el-y-spacing-small: 4px
         font-size: $frm-el-font-size-small
 
     background-color: $color--bleach
-    border-radius: 2px
+    // make sure we add a border radius that is cohesive with others
+    border-radius: $frm-el-border-radius
     border: 1px solid $color--fog
     color: $color--coal
     display: block
     font-family: $body-font-family
     font-weight: bold
-    width: 100%
     transition: padding 0.2s 0.2s
+    width: 100%
 
     //to remove grayscale effect on firefox for android
     background-image: none

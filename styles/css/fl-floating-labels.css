@@ -141,14 +141,14 @@
   height: 60px;
   font-size: 18px;
   background-color: #FFFFFF;
-  border-radius: 2px;
+  border-radius: 4px;
   border: 1px solid #D8D9DA;
   color: #3B4245;
   display: block;
   font-family: "arial", sans-serif;
   font-weight: bold;
-  width: 100%;
   transition: padding 0.2s 0.2s;
+  width: 100%;
   background-image: none; }
   .fl-frm__lbl--medium .fl-frm__el {
     height: 48px;
@@ -601,6 +601,7 @@ input-placeholder {
 .fl-frm__tooltip {
   right: 0;
   background: #BDD9EF;
+  border-radius: 4px;
   bottom: 100%;
   color: #3B4245;
   display: none;

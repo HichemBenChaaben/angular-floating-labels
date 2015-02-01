@@ -46,10 +46,6 @@ gulp.task('uglify:build', function() {
   // uglify task for the build
 });
 
-gulp.task('copy:css', function() {
-  // copy css to the build folder
-});
-
 gulp.task('build', ['compress:js:build'], function() {
   // build task copy files to the build folder as min and src
 });
@@ -59,6 +55,4 @@ gulp.task('watch', ['styles', 'autoprefixer', 'jshint'], function() {
   gulp.watch('./src/*.js', ['jshint']);
 });
 
-gulp.task('default', function() {
-  console.log('default task here');
-});
+gulp.task('default', ['styles', 'autoprefixer', 'watch']);

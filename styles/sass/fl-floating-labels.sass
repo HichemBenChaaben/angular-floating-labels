@@ -1,10 +1,8 @@
-$namespace: 'fl-'
-$dir: ltr
-$leading: 'left'
-$trailing: 'right'
-$body-font-family: 'arial', sans-serif
+@import _config
 
-@import normalize
+@if(useNormalize == true)
+    @import normalize
+
 @import colors
 @import mixins
 @import breakpoint
@@ -19,4 +17,3 @@ $body-font-family: 'arial', sans-serif
 @import forms/forms-textareas
 @import forms/forms-tooltips
 @import forms/forms-wrapper-labels
-

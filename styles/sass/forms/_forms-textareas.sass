@@ -1,28 +1,17 @@
 $module: '#{$namespace}frm'
-
 // ===== <textarea> rules =====
 .#{$module}__el--area
     // double the regular size
     height: $frm-el-height * 2
-
-    // removes default scrollbars on IE
-    overflow: auto
-
     line-height: 18px
-    padding-top: $frm-el-y-spacing + 18px
+    padding-bottom: $frm-el-y-spacing
     padding-left: $frm-el-x-spacing
     padding-right: $frm-el-x-spacing
-    padding-bottom: $frm-el-y-spacing
-
+    padding-top: $frm-el-y-spacing + 18px
     // iPhone adds a ghost padding, get rid of it
     [data-platform*="iPhone"] &
         padding-left: $frm-el-x-spacing - 3px
         padding-right: $frm-el-x-spacing - 3px
-
-    // Textareas require some padding as the text is not centered
-    .mod-placeholder &
-        padding-top: $frm-el-y-spacing + 5px
-
     // Text go down onkeyup
     &.js-field-has-value
         padding-top: $frm-el-y-spacing + 26px !important

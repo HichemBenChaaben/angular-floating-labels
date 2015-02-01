@@ -1,3 +1,4 @@
+@charset "UTF-8";
 html {
   font-family: sans-serif;
   -ms-text-size-adjust: 100%;
@@ -168,18 +169,15 @@ button::-moz-focus-inner, input::-moz-focus-inner, legend {
   .fl-frm__lbl--error .fl-frm__el {
     border: none; }
 
-.mod-placeholder .fl-frm__el {
+.fl-frm__el {
   padding-top: 1px; }
 
-.js-field-has-value.fl-frm__el,
-.ie9 .js-field-has-value.fl-frm__el {
+.js-field-has-value.fl-frm__el {
   transition-delay: 0s;
   padding-top: 24px; }
-  .fl-frm__lbl--medium .js-field-has-value.fl-frm__el, .fl-frm__lbl--medium
-  .ie9 .js-field-has-value.fl-frm__el {
+  .fl-frm__lbl--medium .js-field-has-value.fl-frm__el {
     padding-top: 19.2px; }
-  .fl-frm__lbl--small .js-field-has-value.fl-frm__el, .fl-frm__lbl--small
-  .ie9 .js-field-has-value.fl-frm__el {
+  .fl-frm__lbl--small .js-field-has-value.fl-frm__el {
     padding-top: 14.4px; }
 
 .fl-frm__file-upload__button {
@@ -213,14 +211,11 @@ button::-moz-focus-inner, input::-moz-focus-inner, legend {
   margin: 0;
   margin: 5px;
   width: 35%; }
-  @media (min-width: 760px) {
-    .fl-frm__submit__button {
-      width: 20%; } }
 .fl-frm__submit .fl-frm__lbl-txt--error {
-  display: none;
   background-color: #EC4C88;
-  margin: 0 -1px;
+  display: none;
   font-weight: normal;
+  margin: 0 -1px;
   padding: 3px 3px 3px 20px; }
 
 .fl-frm__el--bool:checked, .fl-frm__el--bool:not(checked) {
@@ -340,25 +335,29 @@ button::-moz-focus-inner, input::-moz-focus-inner, legend {
     top: 4px;
     font-size: 10px; }
 
-.mod-placeholder .fl-frm__lbl-txt {
+.fl-frm__lbl-txt {
   left: 0;
   opacity: 0;
   transform: translateX(0);
   transition: all 0.2s ease-in; }
 
-.mod-placeholder .js-field-has-value ~ .fl-frm__lbl-txt {
+.js-field-has-value ~ .fl-frm__lbl-txt {
   opacity: 1;
   transform: translateX(21px); }
-.mod-placeholder .fl-frm__lbl--medium .js-field-has-value ~ .fl-frm__lbl-txt {
+
+.fl-frm__lbl--medium .js-field-has-value ~ .fl-frm__lbl-txt {
   transform: translateX(17px); }
-.mod-placeholder .fl-frm__lbl--small .js-field-has-value ~ .fl-frm__lbl-txt {
+
+.fl-frm__lbl--small .js-field-has-value ~ .fl-frm__lbl-txt {
   transform: translateX(13px); }
 
-.mod-placeholder[data-useragent*="Firefox"] .js-field-has-value ~ .fl-frm__lbl-txt {
+.js-field-has-value ~ .fl-frm__lbl-txt {
   transform: translateX(22px); }
-.mod-placeholder[data-useragent*="Firefox"] .fl-frm__lbl--medium .js-field-has-value ~ .fl-frm__lbl-txt {
+
+.fl-frm__lbl--medium .js-field-has-value ~ .fl-frm__lbl-txt {
   transform: translateX(18px); }
-.mod-placeholder[data-useragent*="Firefox"] .fl-frm__lbl--small .js-field-has-value ~ .fl-frm__lbl-txt {
+
+.fl-frm__lbl--small .js-field-has-value ~ .fl-frm__lbl-txt {
   transform: translateX(14px); }
 
 .placeholder {
@@ -555,17 +554,14 @@ input-placeholder {
 
 .fl-frm__el--area {
   height: 120px;
-  overflow: auto;
   line-height: 18px;
-  padding-top: 26px;
+  padding-bottom: 8px;
   padding-left: 20px;
   padding-right: 20px;
-  padding-bottom: 8px; }
+  padding-top: 26px; }
   [data-platform*="iPhone"] .fl-frm__el--area {
     padding-left: 17px;
     padding-right: 17px; }
-  .mod-placeholder .fl-frm__el--area {
-    padding-top: 13px; }
   .fl-frm__el--area.js-field-has-value {
     padding-top: 34px !important; }
 

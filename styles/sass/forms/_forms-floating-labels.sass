@@ -11,7 +11,6 @@ $module: '#{$namespace}frm'
     user-select: none
     white-space: nowrap
     z-index: 1
-
     // Makes up for the element border
     #{$leading}: $frm-el-x-spacing + 1px
     top: $frm-el-y-spacing
@@ -31,51 +30,45 @@ $module: '#{$namespace}frm'
 // labels and show slide them right on typing
 
 // Reset the left and use transform transition instead
-.mod-placeholder .#{$module}__lbl-txt
+.#{$module}__lbl-txt
     #{$leading}: 0
     opacity: 0
     transform: translateX(0)
     transition: all 0.2s ease-in
 
 // js-field-has-value gets added onkeyup/onchange, hence showing the label
-.mod-placeholder
-    .js-field-has-value ~ .#{$module}__lbl-txt
-        opacity: 1
-        @if ($dir == 'ltr')
-            transform: translateX($frm-el-x-spacing + 1px)
-        @else
-            transform: translateX(-($frm-el-x-spacing + 1px))
+.js-field-has-value ~ .#{$module}__lbl-txt
+    opacity: 1
+    transform: translateX($frm-el-x-spacing + 1px)
+    // Support for other languages but by default let's assume its ltr
+    @if ($dir == 'rtl')
+        transform: translateX(-($frm-el-x-spacing + 1px))
 
-    .#{$module}__lbl--medium .js-field-has-value ~ .#{$module}__lbl-txt
-
-        @if ($dir == 'ltr')
-            transform: translateX($frm-el-x-spacing-medium + 1px)
-        @else
-            transform: translateX(-($frm-el-x-spacing-medium + 1px))
+.#{$module}__lbl--medium .js-field-has-value ~ .#{$module}__lbl-txt
+    transform: translateX($frm-el-x-spacing-medium + 1px)
+    @if ($dir == 'rtl')
+        transform: translateX(-($frm-el-x-spacing-medium + 1px))
 
 
-    .#{$module}__lbl--small .js-field-has-value ~ .#{$module}__lbl-txt
-        @if ($dir == 'ltr')
-            transform: translateX($frm-el-x-spacing-small + 1px)
-        @else
-            transform: translateX(-($frm-el-x-spacing-small + 1px))
-
+.#{$module}__lbl--small .js-field-has-value ~ .#{$module}__lbl-txt
+    transform: translateX($frm-el-x-spacing-small + 1px)
+    @if ($dir == 'rtl')
+        transform: translateX(-($frm-el-x-spacing-small + 1px))
 // Firefox needs an extra pixel
-.mod-placeholder[data-useragent*="Firefox"]
-    .js-field-has-value ~ .#{$module}__lbl-txt
-        @if ($dir == 'ltr')
-            transform: translateX($frm-el-x-spacing + 2px)
-        @else
-            transform: translateX(-($frm-el-x-spacing + 2px))
+.js-field-has-value ~ .#{$module}__lbl-txt
+    @if ($dir == 'ltr')
+        transform: translateX($frm-el-x-spacing + 2px)
+    @else
+        transform: translateX(-($frm-el-x-spacing + 2px))
 
-    .#{$module}__lbl--medium .js-field-has-value ~ .#{$module}__lbl-txt
-        @if ($dir == 'ltr')
-            transform: translateX($frm-el-x-spacing-medium + 2px)
-        @else
-            transform: translateX(-($frm-el-x-spacing-medium + 2px))
+.#{$module}__lbl--medium .js-field-has-value ~ .#{$module}__lbl-txt
+    @if ($dir == 'ltr')
+        transform: translateX($frm-el-x-spacing-medium + 2px)
+    @else
+        transform: translateX(-($frm-el-x-spacing-medium + 2px))
 
-    .#{$module}__lbl--small .js-field-has-value ~ .#{$module}__lbl-txt
-        @if ($dir == 'ltr')
-            transform: translateX($frm-el-x-spacing-small + 2px)
-        @else
-            transform: translateX(-($frm-el-x-spacing-small + 2px))
+.#{$module}__lbl--small .js-field-has-value ~ .#{$module}__lbl-txt
+    @if ($dir == 'ltr')
+        transform: translateX($frm-el-x-spacing-small + 2px)
+    @else
+        transform: translateX(-($frm-el-x-spacing-small + 2px))

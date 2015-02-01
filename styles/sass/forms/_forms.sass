@@ -27,7 +27,6 @@ $frm-el-y-spacing-small: 4px
 .#{$module}__el
     // resets browser specific styles
     +reset-appearence
-
     // Firefox didn't apply line-height on form elements before v30
     height: $frm-el-height
     font-size: $frm-el-font-size
@@ -71,16 +70,14 @@ $frm-el-y-spacing-small: 4px
         border: none
 
 // With placeholder support, text is vertically centered (1px is required by some browsers)
-.mod-placeholder .#{$module}__el
+.#{$module}__el
     padding-top: 1px
 
 // Text moves down onkeyup/onchange/onload with value
 // (also pushes the value to the bottom on ie9 by default)
-.js-field-has-value.#{$module}__el,
-.ie9 .js-field-has-value.#{$module}__el
+.js-field-has-value.#{$module}__el
     // reset the delay so it doesn't overlap
     transition-delay: 0s
-
     padding-top: $frm-el-height / 2.5
 
     .#{$module}__lbl--medium &
@@ -91,19 +88,15 @@ $frm-el-y-spacing-small: 4px
 
 //file upload button
 .#{$module}__file-upload
-
     &__button
         cursor: pointer
         display: none
-
     &__text
         display: block
         line-height: 56px
         vertical-align: middle
         color: $color--coal
-
 //submit text - button
-
 .#{$module}__submit.#{$module}__lbl--error
     background-color: $color--bleach
     border: 1px solid $color--barbie
@@ -128,12 +121,9 @@ $frm-el-y-spacing-small: 4px
         margin: 5px
         width: 35%
 
-        +breakpoint(tablet)
-            width: 20%
-
     .#{$module}__lbl-txt--error
-        display: none
         background-color: $color--barbie
-        margin: 0 -1px
+        display: none
         font-weight: normal
+        margin: 0 -1px
         padding: 3px 3px 3px 20px

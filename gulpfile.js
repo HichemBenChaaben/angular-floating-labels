@@ -51,8 +51,8 @@ gulp.task('build', ['compress:js:build'], function() {
 });
 
 gulp.task('watch', ['styles', 'autoprefixer', 'jshint'], function() {
-  gulp.watch('./styles/sass/*.sass', ['styles', 'autoprefixer']);
-  gulp.watch('./src/*.js', ['jshint']);
+  gulp.watch('./styles/sass/**/*.sass', ['styles', 'autoprefixer']);
+  gulp.watch('./src/**/*.js', ['jshint']);
 });
 
 gulp.task('default', ['styles', 'autoprefixer', 'watch']);

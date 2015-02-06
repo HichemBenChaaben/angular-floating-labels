@@ -11,9 +11,9 @@ angular.module('app.directives.floatinglabels', [])
                     chars: '@chars',
                 },
                 link: function($scope, $element, $attrs) {
-                    var placeholderVal = $attrs.placeholder;
-                    var requiredClass = 'fl-frm__lbl--required';
-                    var count = 0,
+                    var placeholderVal = $attrs.placeholder,
+                        requiredClass = 'fl-frm__lbl--required',
+                        count = 0,
                         something = 0,
                         tmplMax = '';
 
@@ -24,7 +24,7 @@ angular.module('app.directives.floatinglabels', [])
                     if ($attrs.maxlength) {
                         // set the typed value
                         var max = $attrs.maxlength;
-                            $scope.chars = $attrs.value.length || 0;
+                            $scope.chars = $attrs.value.length;
 
                         // set of typed values should be after input element
                         var tmplMax = '<span class="js-char-counter {{flErrorClass}}">' +
@@ -45,23 +45,46 @@ angular.module('app.directives.floatinglabels', [])
 
                     // If we are on the edit mode we should add the label
                     if ($attrs.value && $attrs.value.length > 0) {
-                        $element.addClass('js-field-has-value');
+                        // Add a floating label
+                        addFl();
                     }
+                    // if the type is number then we need a workaround thanks w3c
+                    if($attrs.type==='number') {
+                        console.log('number....');
+                    }
+
                     // Change the counter value if maxlength is set in the Gui
                     $element.bind('keypress keyup', function(event) {
+                        // Not permitted to type a string in a number type input
+                        if($attrs.type==="number") {
+                            var val = event.target.value;
+                            if (!parseInt(val, 10)) {
+                                // erase all
+                                event.target.value = val.substr(1 , val.length-1);
+                            }
+                        }
                         $scope.chars = event.target.value.length;
                         $scope.$apply();
                     });
                     // If we type a key we add the floating label
                     $element.bind('keyup blur', function(event) {
-                        return event.target.value.length ? $element.addClass('js-field-has-value') : $element.removeClass('js-field-has-value');
+                        return event.target.value.length > 0 ? addFl() : removeFl();
                     });
+
+                    // Add a floating label
+                    function addFl() {
+                        $element.addClass('js-field-has-value');
+                    }
+                    // remove a floating label
+                    function removeFl() {
+                        $element.removeClass('js-field-has-value');
+                    }
                 }
             };
         })
         .controller('updateMaxCount', function($attrs) {
             var vm = this;
-            vm.chars = $attrs.value.length;
+            vm.chars = $attrs.value.length > 0 ? $attrs.value.length : 0;
         })
         // Adding a tooltip directive
         .directive('flTip', function() {

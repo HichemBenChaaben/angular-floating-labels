@@ -2,25 +2,20 @@
 'use strict';
 angular.module('app.directives.floatinglabels', [])
     .directive('flLabel', function($compile) {
-            // Runs during compile
             return {
                 restrict: 'A',
-                transclude: true,
                 priority: 1,
                 controller: 'updateMaxCount',
                 scope: {
                     count: "=count",
-                    something: '@something'
+                    chars: '@chars',
                 },
-                template: '<span class="js-char-counter"><span class="js-typed">{{count}}</span>/{{max}}</span>',
                 link: function($scope, $element, $attrs) {
-                    // if the placholder is not specified by the controller scope then it will pickup
-                    // the one statically existing on the page otheriwse the directive default will be
-                    // assigned to the placeholder
-                    var placeholderVal = $attrs.placeholder || $scope.customPlaceholder;
+                    var placeholderVal = $attrs.placeholder;
                     var requiredClass = 'fl-frm__lbl--required';
                     var count = 0,
-                        something = 0;
+                        something = 0,
+                        tmplMax = '';
 
                     if (!$attrs.required) {
                         requiredClass = "";
@@ -28,29 +23,33 @@ angular.module('app.directives.floatinglabels', [])
                     // template or max length
                     if ($attrs.maxlength) {
                         // set the typed value
-                        var max = $attrs.maxlength,
-                            typed = $attrs.value.length || 0;
+                        var max = $attrs.maxlength;
+                            $scope.chars = $attrs.value.length || 0;
+
                         // set of typed values should be after input element
-                        var tmplMax = '<span class="js-char-counter">' +
-                            '<span class="js-typed">{{something}}</span>/' + max + '</span>';
+                        var tmplMax = '<span class="js-char-counter {{flErrorClass}}">' +
+                            '<span class="js-type">{{chars}}</span>/' + max + '</span>';
+
+                        var errorMessages = '<span class="fl-frm__lbl-txt--error ng-show="isError">{{flErrors}}</span>';
+
                         tmplMax = $compile(tmplMax)($scope);
-                    } else {
-                        var tmplMax = '';
+                        errorMessages = $compile(errorMessages)($scope);
+
                     }
 
                     $element.wrap('<label class="fl-frm__lbl ' + requiredClass + '">')
-                        .addClass('fl-frm__el fl-frm__el--txt')
                         .after(tmplMax)
+                        .addClass('fl-frm__el fl-frm__el--txt')
                         .after('<span class="fl-frm__lbl-txt">' + placeholderVal + '</span>')
-                        .after('<span class="fl-frm__lbl-txt--error">Only numbers are allowed</span>');
+                        .after(errorMessages);
 
                     // If we are on the edit mode we should add the label
                     if ($attrs.value && $attrs.value.length > 0) {
                         $element.addClass('js-field-has-value');
                     }
-
-                    $element.bind('keyup', function(event) {
-                        $scope.something = event.target.value.length;
+                    // Change the counter value if maxlength is set in the Gui
+                    $element.bind('keypress keyup', function(event) {
+                        $scope.chars = event.target.value.length;
                         $scope.$apply();
                     });
                     // If we type a key we add the floating label
@@ -60,8 +59,9 @@ angular.module('app.directives.floatinglabels', [])
                 }
             };
         })
-        .controller('updateMaxCount', function($scope, $element, $attrs) {
-            $scope.something = $attrs.value.length;
+        .controller('updateMaxCount', function($attrs) {
+            var vm = this;
+            vm.chars = $attrs.value.length;
         })
         // Adding a tooltip directive
         .directive('flTip', function() {
@@ -78,7 +78,6 @@ angular.module('app.directives.floatinglabels', [])
             };
         })
         .directive('flSelect', function() {
-            // implemenet later
             return {
                 restrict: 'A',
                 priority: 1,

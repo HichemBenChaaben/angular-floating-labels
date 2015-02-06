@@ -1,47 +1,244 @@
 <div class="container jumb">
-  <h1 class="h2">Angular floating labels</h1>
-  <p>A ux revolutionary way to create responsive forms with Angular js</p>
-  <div clas="row">
-    <div class="col-sm-4 col-md-3 thumbnail">
-      <div class="card fa fa-bolt">&nbsp;</div>
-      <div class="card__desc">
-        <p>Lighweight, only 500kb overall</p>
-      </div>
+    <h1 class="h2">Angular floating labels</h1>
+    <p>A ux revolutionary way to create responsive forms with Angular js</p>
+    <div clas="row">
+        <div class="col-sm-4 col-md-3 thumbnail">
+            <div class="card fa fa-bolt">&nbsp;</div>
+            <div class="card__desc">
+                <p>Lighweight, only 500kb overall</p>
+            </div>
+        </div>
+        <div class="col-sm-4 col-md-3 thumbnail">
+            <div class="card fa fa-desktop">&nbsp;</div>
+            <p>Multi device and browser support</p>
+        </div>
+        <div class="col-sm-4 col-md-3 thumbnail">
+            <div class="card fa fa-bicycle">&nbsp;</div>
+            <p>Acessible and user friendly</p>
+        </div>
+        <div class="col-sm-4 col-md-3 thumbnail">
+            <div class="card fa fa-code">&nbsp;</div>
+            <p>Plays nice with existing code, minimal customization</p>
+        </div>
+        <div class="col-sm-12 col-md-12">
+            <a class="btn btn-large btn-default">
+                <span class="fa fa-cloud-download">&nbsp;</span>Download
+            </a>
+            <a href="#"
+               class="btn btn-large btn-default"
+               ui-sref-active="active"
+               ui-sref="inaction">
+                <span class="fa fa-arrow-right">&nbsp;</span>See it in action
+            </a>
+            <a class="btn btn-default"
+               href="https://github.com/HichemBenChaaben/angular-floating-labels"
+               target="_blank">
+                <span class="fa fa-github">&nbsp;</span>github
+            </a>
+            <br/>
+        </div>
     </div>
-    <div class="col-sm-4 col-md-3 thumbnail">
-      <div class="card fa fa-desktop">&nbsp;</div>
-      <p>Multi device and browser support</p>
-    </div>
-    <div class="col-sm-4 col-md-3 thumbnail">
-      <div class="card fa fa-bicycle">&nbsp;</div>
-      <p>Acessible and user friendly</p>
-    </div>
-    <div class="col-sm-4 col-md-3 thumbnail">
-      <div class="card fa fa-code">&nbsp;</div>
-      <p>Plays nice with existing code, minimal customization</p>
-    </div>
-    <div class="col-sm-12 col-md-12">
-      <a class="btn btn-large btn-default">
-        <span class="fa fa-cloud-download">&nbsp;</span>Download
-      </a>
-      <a href="#"
-         class="btn btn-large btn-default"
-         ui-sref-active="active"
-         ui-sref="inaction">
-        <span class="fa fa-arrow-right">&nbsp;</span>See it in action
-      </a>
-      <a class="btn btn-default"
-         href="https://github.com/HichemBenChaaben/angular-floating-labels"
-         target="_blank">
-        <span class="fa fa-github">&nbsp;</span>github
-      </a>
-      <br/>
-    </div>
-  </div>
 </div>
 <div class="container">
-  <h2>About floating labels ?</h2>
-  <p>Floating labels patterns is going to change the way users interact with your forms,
-  you can accomodate large content in small spaces</p>
-  <a href="#" ui-sref="components" class="btn btn-success">Take me threw</a>
+    <h2>About floating labels ?</h2>
+    <p>Floating labels patterns is going to change the way users interact with your forms,
+    you can accomodate large content in small spaces</p>
+    <a href="#" ui-sref="components" class="btn btn-success">Take me threw</a>
+</div>
+<div class="demo">
+    <form name="floating-labels">
+        <div class="row">
+            <div class="col-md-6">
+                {{count}}
+                <input fl-label
+                       type="number"
+                       required
+                       placeholder="Type your registration number..."
+                       fl-tip="{{fm.tip}}"
+                       value="{{fm.oneVal}}"
+                       maxLength="30">
+
+                <input fl-label
+                       required
+                       placeholder="{{fm.one}}"
+                       fl-tip="{{fm.tip}}"
+                       value="{{fm.oneVal}}"
+                       maxLength="30">
+
+                <input fl-label
+                       type="email"
+                       required
+                       placeholder="{{fm.two}}"
+                       fl-tip="{{fm.tipTwo}}"
+                       value="{{fm.twoVal}}"
+                       maxLength="50">
+                <input fl-label
+                       value="Static value"
+                       required
+                       placeholder="Static value for placeholder"
+                       fl-tip="Static value for tooltip"
+                       max-length="40"/>
+                <input fl-label
+                       required
+                       placeholder="{{fm.one}}"
+                       fl-tip="{{fm.tip}}"
+                       value="{{fm.oneVal}}"
+                       maxLength="30">
+
+                <input fl-label
+                       type="email"
+                       required
+                       placeholder="{{fm.two}}"
+                       fl-tip="{{fm.tipTwo}}"
+                       value="{{fm.twoVal}}"
+                       maxLength="50">
+                <input fl-label
+                       value="Static value"
+                       required
+                       placeholder="Static value for placeholder"
+                       fl-tip="Static value for tooltip"
+                       max-length="40"/>
+                <input fl-label
+                       required
+                       placeholder="{{fm.one}}"
+                       fl-tip="{{fm.tip}}"
+                       value="{{fm.oneVal}}"
+                       maxLength="30">
+
+                <input fl-label
+                       type="email"
+                       required
+                       placeholder="{{fm.two}}"
+                       fl-tip="{{fm.tipTwo}}"
+                       value="{{fm.twoVal}}"
+                       maxLength="50">
+                <input fl-label
+                       value="Static value"
+                       required
+                       placeholder="Static value for placeholder"
+                       fl-tip="Static value for tooltip"
+                       max-length="40"/>
+                <input fl-label
+                       required
+                       placeholder="{{fm.one}}"
+                       fl-tip="{{fm.tip}}"
+                       value="{{fm.oneVal}}"
+                       maxLength="30">
+
+                <input fl-label
+                       type="email"
+                       required
+                       placeholder="{{fm.two}}"
+                       fl-tip="{{fm.tipTwo}}"
+                       value="{{fm.twoVal}}"
+                       maxLength="50">
+                <input fl-label
+                       value="Static value"
+                       required
+                       placeholder="Static value for placeholder"
+                       fl-tip="Static value for tooltip"
+                       max-length="40"/>
+                <input fl-label
+                       required
+                       placeholder="{{fm.one}}"
+                       fl-tip="{{fm.tip}}"
+                       value="{{fm.oneVal}}"
+                       maxLength="30">
+
+                <input fl-label
+                       type="email"
+                       required
+                       placeholder="{{fm.two}}"
+                       fl-tip="{{fm.tipTwo}}"
+                       value="{{fm.twoVal}}"
+                       maxLength="50">
+                <input fl-label
+                       value="Static value"
+                       required
+                       placeholder="Static value for placeholder"
+                       fl-tip="Static value for tooltip"
+                       max-length="40"/>
+                <input fl-label
+                       required
+                       placeholder="{{fm.one}}"
+                       fl-tip="{{fm.tip}}"
+                       value="{{fm.oneVal}}"
+                       maxLength="30">
+
+                <input fl-label
+                       type="email"
+                       required
+                       placeholder="{{fm.two}}"
+                       fl-tip="{{fm.tipTwo}}"
+                       value="{{fm.twoVal}}"
+                       maxLength="50">
+                <input fl-label
+                       value="Static value"
+                       required
+                       placeholder="Static value for placeholder"
+                       fl-tip="Static value for tooltip"
+                       max-length="40"/>
+                <input fl-label
+                       required
+                       placeholder="{{fm.one}}"
+                       fl-tip="{{fm.tip}}"
+                       value="{{fm.oneVal}}"
+                       maxLength="30">
+
+                <input fl-label
+                       type="email"
+                       required
+                       placeholder="{{fm.two}}"
+                       fl-tip="{{fm.tipTwo}}"
+                       value="{{fm.twoVal}}"
+                       maxLength="50">
+                <input fl-label
+                       value="Static value"
+                       required
+                       placeholder="Static value for placeholder"
+                       fl-tip="Static value for tooltip"
+                       max-length="40"/>
+                <input fl-label
+                       required
+                       placeholder="{{fm.one}}"
+                       fl-tip="{{fm.tip}}"
+                       value="{{fm.oneVal}}"
+                       maxLength="30">
+
+                <input fl-label
+                       type="email"
+                       required
+                       placeholder="{{fm.two}}"
+                       fl-tip="{{fm.tipTwo}}"
+                       value="{{fm.twoVal}}"
+                       maxLength="50">
+                <input fl-label
+                       value="Static value"
+                       required
+                       placeholder="Static value for placeholder"
+                       fl-tip="Static value for tooltip"
+                       max-length="40"/>
+                <input fl-label
+                       required
+                       placeholder="{{fm.one}}"
+                       fl-tip="{{fm.tip}}"
+                       value="{{fm.oneVal}}"
+                       maxLength="30">
+
+                <input fl-label
+                       type="email"
+                       required
+                       placeholder="{{fm.two}}"
+                       fl-tip="{{fm.tipTwo}}"
+                       value="{{fm.twoVal}}"
+                       maxLength="50">
+                <input fl-label
+                       value="Static value"
+                       required
+                       placeholder="Static value for placeholder"
+                       fl-tip="Static value for tooltip"
+                       max-length="40"/>
+            </div>
+       </div>
+    </form>
 </div>

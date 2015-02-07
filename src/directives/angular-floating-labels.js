@@ -1,7 +1,7 @@
 (function() {
-'use strict';
-angular.module('app.directives.floatinglabels', [])
-    .directive('flLabel', function($compile) {
+    'use strict';
+    angular.module('app.directives.floatinglabels', [])
+        .directive('flLabel', function($compile) {
             return {
                 restrict: 'A',
                 priority: 1,
@@ -24,7 +24,7 @@ angular.module('app.directives.floatinglabels', [])
                     if ($attrs.maxlength) {
                         // set the typed value
                         var max = $attrs.maxlength;
-                            $scope.chars = $attrs.value.length;
+                        $scope.chars = $attrs.value.length;
 
                         // set of typed values should be after input element
                         var tmplMax = '<span class="js-char-counter {{flErrorClass}}">' +
@@ -49,18 +49,18 @@ angular.module('app.directives.floatinglabels', [])
                         addFl();
                     }
                     // if the type is number then we need a workaround thanks w3c
-                    if($attrs.type==='number') {
+                    if ($attrs.type === 'number') {
                         console.log('number....');
                     }
 
                     // Change the counter value if maxlength is set in the Gui
                     $element.bind('keypress keyup', function(event) {
                         // Not permitted to type a string in a number type input
-                        if($attrs.type==="number") {
+                        if ($attrs.type === "number") {
                             var val = event.target.value;
                             if (!parseInt(val, 10)) {
                                 // erase all
-                                event.target.value = val.substr(1 , val.length-1);
+                                event.target.value = val.substr(1, val.length - 1);
                             }
                         }
                         $scope.chars = event.target.value.length;
@@ -73,9 +73,9 @@ angular.module('app.directives.floatinglabels', [])
 
                     // Add a floating label
                     function addFl() {
-                        $element.addClass('js-field-has-value');
-                    }
-                    // remove a floating label
+                            $element.addClass('js-field-has-value');
+                        }
+                        // remove a floating label
                     function removeFl() {
                         $element.removeClass('js-field-has-value');
                     }
@@ -118,4 +118,4 @@ angular.module('app.directives.floatinglabels', [])
                 }
             }
         });
-    })();
+})();

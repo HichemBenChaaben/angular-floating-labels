@@ -1,3 +1,5 @@
+@import _breakpoint
+
 // Project config sass (non related to the angular module it self)
 $turquoise: #1abc9c
 $emerland: #2ecc71
@@ -17,37 +19,50 @@ $pomegrenade: #c0392b
 $silver: #bdc3c7
 
 html, body
-  background-color: white
+    background-color: white
 .header
-  background-color: $green-sea !important
-  color: white
-  .navbar
-    border-radius: 0
-    margin-bottom: 0
-.jumb
-  color: white
-  background-color: $alizarin !important
-  text-align: center
-  padding-bottom: 20px
-  button
+    background-color: $green-sea !important
     color: white
-    background-color: $belize
-  .cards
-    margin: 0 auto
+    .navbar
+        border-radius: 0
+        margin-bottom: 0
+.jumb
+    color: white
+    background-color: $alizarin !important
     text-align: center
-  .card
-    font-size: 42px
-    text-align: center
-    padding: 25px
-    margin: 10px auto
-  .thumbnail
-    border: 0
-    background-color: transparent
-    text-align: center
+    padding-bottom: 20px
+    button
+        color: white
+        background-color: $belize
+    .cards
+        margin: 0 auto
+        text-align: center
+    .card
+        font-size: 42px
+        text-align: center
+        padding: 25px
+        margin: 10px auto
+    .thumbnail
+        border: 0
+        background-color: transparent
+        text-align: center
 
 .container
-  background-color: $clouds
-  border: 2px thin $silver
-  margin: 0
-  width: 100%
+    background-color: $clouds
+    border: 2px thin $silver
+    margin: 0
+    width: 100%
 
+// Override twitter bootstrap
+.btn
+    border-bottom: 3px solid #ebeced
+    border-radius: 4px
+.sidebar
+    li
+        list-style: none
+    a
+        text-decoration: none
+
+    +breakpoint(tablet)
+        position: fixed
+        width: 20%

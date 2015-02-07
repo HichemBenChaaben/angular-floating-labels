@@ -20,7 +20,7 @@
         // replace tab with 4 spaces
         hljsServiceProvider.setOptions({
           tabReplace: '  ',
-          languages: 'html javascript'
+          languages: 'html'
         });
 
         $stateProvider.

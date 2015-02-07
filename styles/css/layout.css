@@ -39,13 +39,43 @@ html, body {
   border-bottom: 3px solid #ebeced;
   border-radius: 4px; }
 
-.sidebar li {
-  list-style: none; }
-.sidebar a {
-  text-decoration: none; }
-@media (min-width: 760px) {
-  .sidebar {
-    position: fixed;
-    width: 20%; } }
+.sidebar {
+  margin-top: 25px; }
+  .sidebar li {
+    list-style: none; }
+  .sidebar a {
+    text-decoration: none; }
+  @media (min-width: 760px) {
+    .sidebar {
+      position: fixed;
+      width: 20%; } }
+
+.dcode {
+  text-indent: -150px; }
+
+span.hljs.html {
+  padding-top: 20px; }
+  span.hljs.html pre {
+    padding-right: 64px; }
+
+.code-example {
+  position: relative; }
+  .code-example .copy-me {
+    font-size: 11px;
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 10px;
+    cursor: pointer;
+    border-radius: 0px 0px 0px 9px;
+    border: 1px solid #ccc;
+    background-color: white; }
+    .code-example .copy-me:hover {
+      text-decoration: none;
+      background-color: #f4f4f4; }
+    .code-example .copy-me a {
+      text-decoration: none; }
+      .code-example .copy-me a:hover {
+        color: #337ab7; }
 
 /*# sourceMappingURL=layout.css.map */

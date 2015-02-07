@@ -18,6 +18,8 @@
   },
   "devDependencies": {
     "ng-animate-css": "~0.0.4",
-    "angular-highlightjs": "~0.3.2"
+    "angular-highlightjs": "~0.3.2",
+    "zeroclipboard": "~2.2.0",
+    "ng-clip": "~0.2.6"
   }
 }

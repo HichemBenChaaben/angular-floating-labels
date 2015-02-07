@@ -58,6 +58,7 @@ html, body
     border-bottom: 3px solid #ebeced
     border-radius: 4px
 .sidebar
+    margin-top: 25px
     li
         list-style: none
     a
@@ -66,3 +67,30 @@ html, body
     +breakpoint(tablet)
         position: fixed
         width: 20%
+.dcode
+    text-indent: -150px
+
+span.hljs.html
+    padding-top: 20px
+    pre
+        padding-right: 64px
+
+.code-example
+    position: relative
+    .copy-me
+        font-size: 11px
+        position: absolute
+        top: 0
+        right: 0
+        padding: 10px
+        cursor: pointer
+        border-radius: 0px 0px 0px 9px
+        border: 1px solid #ccc
+        background-color: white
+        &:hover
+            text-decoration: none
+            background-color: #f4f4f4
+        a
+            text-decoration: none
+            &:hover
+                color: #337ab7

@@ -2,19 +2,21 @@
     <div class="col-xs-3">
         <ul class="list-group sidebar">
             <li class="list-group-item">
-                <a href="#"
+                <a href=""
                     ng-click="scrollTo('input')"
                     ui-sref-active="active">
                     Simple input text
                 </a>
             </li>
             <li class="list-group-item">
-                <a href="#" ng-click="scrollTo('input-text-required')">
+                <a href="#"
+                    ng-click="scrollTo('input-text-required')">
                     Input text required
                 </a>
             </li>
             <li class="list-group-item">
-                <a href="#" ng-click="scrollTo('input-text-tooltip')">
+                <a href="#"
+                    ng-click="scrollTo('input-text-tooltip')">
                     Input text with tooltip
                 </a>
             </li>
@@ -34,47 +36,115 @@
                 </a>
             </li>
         </ul>
-        <!-- Menu here -->
     </div>
     <div class="col-xs-9">
-        <h2>Angular floating labels are custom directives</h2>
+        <h2>Simple usage</h2>
         <div class="bs-callout bs-callout-info" id="callout-inputgroup-form-labels">
-            <p>Add always <code>fl-label</code> attribute to the input element, you don't need to use the<code>label</code>element.<br/>
-            For the input elements and textareas, the placeholder attribute is going to act like a label and for the select elements the first option is going to act like a label.
+            <p>Add always <code>fl-label</code> attribute to the input element.</br>
+            The element <code>label</code>can be omitted.<br/>.
         </div>
         <form name="myform">
-            <!-- First prototype not changing the elments -->
-            <h2 id="input-text">Simple input text</h2>
-            <!-- use hightlight js-->
-            <div hljs language="html">
-                <input fl-label="text" name="name" placeholder="i'm a placeholder"/>
+            <h3 id="input-text">Simple input text</h3>
+            <input fl-label name="name" placeholder="Type your name" value=""/>
+            <div class="code-example">
+                <span class="copy-me" compile="false">
+                    <a href="#">
+                        <span class="fa fa-clipboard">&nbsp;</span>
+                        Copy
+                    </a>
+                </span>
+                <div hljs language="html" class="dcode" compile="true">
+                    <input fl-label name="name" placeholder="Type your name" value=""/>
+                </div>
             </div>
-            <input fl-label="text" name="name" placeholder="i'm a placeholder"/>
             <hr/>
-            <h3 id="input-text-required">Input text required</h3>
-            <!-- Hook up with the controller -->
-            <div hljs language="html">
-                <input fl-label="text" required="required" name="name" placeholder="i'm a placeholder"/>
+            <h4 id="text-required">Input text required</h4>
+            <input fl-label required name="name" placeholder="i'm a placeholder" value="" required/>
+            <div class="code-example">
+                <span class="copy-me" compile="false">
+                    <a href="#">
+                        <span class="fa fa-clipboard">&nbsp;</span>
+                        Copy
+                    </a>
+                </span>
+                <div hljs language="html" class="dcode" compile="true">
+                    <input fl-label name="name" placeholder="i'm a placeholder" value="" required/>
+                </div>
             </div>
-            <input fl-label="text" required name="name" placeholder="i'm a placeholder"/>
+            <hr/>
+            <h4 id="input-with-tooltip">Input text with tooltip</h4>
+            <input fl-label
+                   required
+                   placeholder="This is a sample placeholder"
+                   fl-tip="This is a handy tooltip"
+                   value=""/>
+            <div class="code-example">
+                <span class="copy-me" compile="false">
+                    <a href="#">
+                        <span class="fa fa-clipboard">&nbsp;</span>
+                        Copy
+                    </a>
+                </span>
+                <div hljs language="html" class="dcode" compile="true">
+                    <input fl-label name="name" placeholder="i'm a placeholder" value="" required fl-tip="This is a handy tooltip"/>
+                </div>
+            </div>
+            <hr/>
+            <h4>Input text with a charcounter</h4>
+            <input fl-label
+                   placeholder="This is a placeholder"
+                   required
+                   value=""
+                   fl-tip="this is a handy tooltip"
+                   maxLength="55"/>
+            <div class="code-example">
+                <span class="copy-me" compile="false">
+                    <a href="#">
+                        <span class="fa fa-clipboard">&nbsp;</span>
+                        Copy
+                    </a>
+                </span>
+                <div hljs language="html" class="dcode" compile="true">
+                    <input fl-label name="name" placeholder="i'm a placeholder" value="" required/>
+                </div>
+            </div>
+            <hr/>
+            <h4>Input text with error</h4>
+            <input fl-label
+                   type="text"
+                   value=""
+                   required
+                   placeholder="This is a simple placeholder"
+                   fl-tip="This is a handy tooltip"
+                   maxLength="55"
+                   fl-error="This is a simple error message"/>
+            <div class="code-example">
+               <span class="copy-me" compile="false">
+                   <a href="#">
+                       <span class="fa fa-clipboard">&nbsp;</span>
+                       Copy
+                   </a>
+               </span>
+               <div hljs language="html" class="dcode" compile="true">
+                   <input fl-label name="name" placeholder="i'm a placeholder" value="" required/>
+               </div>
+            </div>
+            <hr/>
+
+            <h2>Customize the css</h2>
             <div class="alert alert-info">
                 <span>
-                    <span class="fa fa-lightbulb-o">&nbsp;</span>
-                    <b>Customize the required css class</b>
+                <span class="fa fa-lightbulb-o">&nbsp;</span>
+                <b>Customize the required css class</b>
                 </span>
                 <p>
-                    You can override the css class .fl-frm__lbl--required:before<br/>
-                    The required styles are part of the floating label pattern but still you can change the default ones and add your own styles.
+                You can override the css class .fl-frm__lbl--required:before<br/>
+                The required styles are part of the floating label pattern but still you can change the default ones and add your own styles.
                 </p>
             </div>
-            <h3 id="input-text-tooltip">Input text with toolip</h3>
-            <div hljs language="html">
-                <input fl-label name="tooltip"
-                       placeholder="i'm the placeholder"
-                       fl-tip="I'm the tooltip"
-                       required="required"/>
-            </div>
-            <input fl-label="text"
+            <h2 id="input-text-tooltip">Input text with toolip</h3>
+            <input fl-label
+            value=""
             name="tooltip"
             placeholder="i'm the placeholder"
             fl-tip="I'm the tooltip"
@@ -88,89 +158,6 @@
                 You can override the css class .fl-frm__tooltip<br/>
                 If you are have your own tooltips you can still use them the way you want and you can also modify the default ones like changing font-size or colors maintaing your own styles.
                 </p>
-            </div>
-            <h2>Input with a tooltip</h2>
-            <input name="input-with-tooltip"
-            type="text"
-            placeholder="well this is static"
-            required
-            fl-label-small
-            fl-label />
-            <h2>Input with tooltip</h2>
-            <h2>Inputs with tooltips</h2>
-            <input name="with-error"
-            required
-            type="text"
-            placeholder="{{whatever}}"
-            fl-label
-            fl-tip="{{whatever}}"
-            fl-error="{{whatever}}" />
-            <!-- Second prototype new html element -->
-        </form>
-        <h2>Full example</h2>
-        <form>
-            <div class="row">
-                <div class="large-12 columns">
-                    <input type="text"
-                    placeholder="large-12.columns"
-                    fl-label
-                    fl-tip="This is how easy it is folks!" />
-                </div>
-            </div>
-            <div class="row">
-                <div class="large-4 columns">
-                    <label>Input Label
-                        <input type="text" placeholder="large-4.columns" fl-label/>
-                    </label>
-                </div>
-                <div class="large-4 columns">
-                    <label>Input Label
-                        <input type="text" placeholder="large-4.columns" fl-label>
-                    </label>
-                </div>
-                <div class="large-4 columns">
-                    <div class="row collapse">
-                        <label>Input Label</label>
-                        <div class="small-9 columns">
-                            <input type="text" placeholder="small-9.columns" fl-label>
-                        </div>
-                        <div class="small-3 columns">
-                            <span class="postfix">.com</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <hr/>
-            <div class="row">
-                <div class="large-12 columns">
-                    Select Box
-                    <select fl-select required>
-                        <option value="">Select your item</option>
-                        <option value="husker">Husker</option>
-                        <option value="starbuck">Starbucks</option>
-                        <option value="hotdog">Hot Dog</option>
-                        <option value="apollo">Apollo</option>
-                    </select>
-                </div>
-            </div>
-            <div class="row">
-                <div class="large-6 columns">
-                    <label>Choose Your Favorite</label>
-                    <input type="radio" name="pokemon" value="Red" id="pokemonRed" fl-label/><label for="pokemonRed">Red</label>
-                    <input type="radio" name="pokemon" value="Blue" id="pokemonBlue"><label for="pokemonBlue">Blue</label>
-                </div>
-                <div class="large-6 columns">
-                    <label>Check These Out</label>
-                    <input id="checkbox1" type="checkbox" fl-label /><label for="checkbox1">Checkbox 1</label>
-                    <input id="checkbox2" type="checkbox" fl-label /><label for="checkbox2">Checkbox 2</label>
-                </div>
-            </div>
-            <div class="row">
-                <div class="large-12 columns">
-                    <label>Textarea Label
-                        <textarea placeholder="small-12.columns" fl-label></textarea>
-                    </label>
-                </div>
             </div>
         </form>
     </div>

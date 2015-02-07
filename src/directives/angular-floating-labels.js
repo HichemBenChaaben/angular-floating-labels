@@ -84,7 +84,7 @@
         })
         .controller('updateMaxCount', function($attrs) {
             var vm = this;
-            vm.chars = $attrs.value.length > 0 ? $attrs.value.length : 0;
+            vm.chars = $attrs.value.length;
         })
         // Adding a tooltip directive
         .directive('flTip', function() {

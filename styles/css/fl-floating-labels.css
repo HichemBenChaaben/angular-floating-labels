@@ -628,7 +628,7 @@ input-placeholder {
 .fl-frm__lbl {
   direction: ltr;
   display: block;
-  margin: 20px auto;
+  margin: 10px auto 5px auto;
   position: relative; }
 
 .fl-frm__lbl--error {
@@ -674,5 +674,24 @@ input-placeholder {
   font-size: 15px;
   top: 13px;
   left: 5px; }
+
+.fl-frm span.ng-valid-email {
+  transition: all 0.2s ease-out;
+  opacity: 0; }
+
+span.fl-frm__validation {
+  background-color: #EC4C88 !important;
+  color: white;
+  border-radius: 4px;
+  display: block;
+  margin-bottom: 6px;
+  margin-top: -4px;
+  margin: 0px;
+  padding: 5px 20px;
+  transition: all 0.2s ease-in;
+  opacity: 1; }
+  .fl-frm__el span.fl-frm__validation {
+    margin-bottom: 0px;
+    transition: all 0.2s ease-in; }
 
 /*# sourceMappingURL=fl-floating-labels.css.map */

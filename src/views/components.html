@@ -110,14 +110,18 @@
             </div>
             <hr/>
             <h4>Input text with error</h4>
-            <input fl-label
-                   type="text"
+            <form novalidate>
+                <input fl-label
+                   type="email"
+                   ng-model="name"
+                   onChange = ""
                    value=""
                    required
                    placeholder="This is a simple placeholder"
                    fl-tip="This is a handy tooltip"
                    maxLength="55"
                    fl-error="This is a simple error message"/>
+            </form>
             <div class="code-example">
                <span class="copy-me" compile="false">
                    <a href="#">
@@ -126,7 +130,7 @@
                    </a>
                </span>
                <div hljs language="html" class="dcode" compile="true">
-                   <input fl-label name="name" placeholder="i'm a placeholder" value="" required/>
+                   <input fl-label name="name" ng-model="name" fl-tip="This is a handy tooltip" placeholder="i'm a placeholder" value="" required/>
                </div>
             </div>
             <hr/>
@@ -159,6 +163,5 @@
                 If you are have your own tooltips you can still use them the way you want and you can also modify the default ones like changing font-size or colors maintaing your own styles.
                 </p>
             </div>
-        </form>
     </div>
 </div>

@@ -18,6 +18,19 @@
 
         vm.isError = true;
         vm.flErrors = 'This is an error message';
+
+        vm.simpleNumber = '123';
+
+        vm.validateNumber = function(arg) {
+            if(!arg) {
+                arg = '';
+            }
+            console.log(arg);
+            if(arg.length > 10) {
+                console.log('too long');
+            }
+        }
+
     };
 
 })();

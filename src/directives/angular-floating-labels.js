@@ -6,16 +6,21 @@
                 restrict: 'A',
                 priority: 1,
                 controller: 'updateMaxCount',
+                // passing the form and the ng-model to the directive
+                require: ['^form','ngModel'],
                 scope: {
                     count: "=count",
                     chars: '@chars',
                 },
-                link: function($scope, $element, $attrs) {
+                link: function($scope, $element, $attrs, $formCtrl) {
                     var placeholderVal = $attrs.placeholder,
                         requiredClass = 'fl-frm__lbl--required',
                         count = 0,
                         something = 0,
                         tmplMax = '';
+
+                    console.log('here is the form name' + $formCtrl.value);
+                    console.log('Loop inside the form');
 
                     if (!$attrs.required) {
                         requiredClass = "";
@@ -63,6 +68,7 @@
                                 event.target.value = val.substr(1, val.length - 1);
                             }
                         }
+
                         $scope.chars = event.target.value.length;
                         $scope.$apply();
                     });

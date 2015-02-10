@@ -1,4 +1,4 @@
-$module: '#{$namespace}frm'
+$module: "#{$namespace}frm"
 
 // TODO: convert different form sizes into a mixin
 
@@ -33,15 +33,12 @@ $frm-el-border-radius: 4px
     // Firefox didn't apply line-height on form elements before v30
     height: $frm-el-height
     font-size: $frm-el-font-size
-
     .#{$module}__lbl--medium &
         height: $frm-el-height-medium
         font-size: frm-el-font-size-medium
-
     .#{$module}__lbl--small &
         height: $frm-el-height-small
         font-size: $frm-el-font-size-small
-
     background-color: $color--bleach
     // make sure we add a border radius that is cohesive with others
     border-radius: $frm-el-border-radius
@@ -52,15 +49,12 @@ $frm-el-border-radius: 4px
     font-weight: bold
     transition: padding 0.2s 0.2s
     width: 100%
-
     //to remove grayscale effect on firefox for android
     background-image: none
-
     &:focus
         box-shadow: 0 0 0px 1px $color--sky
         border-color: $color--sky
         outline: none !important
-
     &[disabled]
         background: $color--dust
         border: 1px solid $color--fog
@@ -68,7 +62,6 @@ $frm-el-border-radius: 4px
         cursor: not-allowed
         // Safari Mobile adds opacity to disabled elements
         opacity: 1 !important
-
     // Remove the borders on error
     .#{$module}__lbl--error &
         border: none
@@ -83,10 +76,8 @@ $frm-el-border-radius: 4px
     // reset the delay so it doesn't overlap
     transition-delay: 0s
     padding-top: $frm-el-height / 2.5
-
     .#{$module}__lbl--medium &
         padding-top: $frm-el-height-medium / 2.5
-
     .#{$module}__lbl--small &
         padding-top: $frm-el-height-small / 2.5
 
@@ -100,13 +91,13 @@ $frm-el-border-radius: 4px
         line-height: 56px
         vertical-align: middle
         color: $color--coal
+
 //submit text - button
 .#{$module}__submit.#{$module}__lbl--error
     background-color: $color--bleach
     border: 1px solid $color--barbie
     padding: 0
     height: auto
-
     .#{$module}__lbl-txt--error
         display: block
 
@@ -124,7 +115,6 @@ $frm-el-border-radius: 4px
         margin: 0
         margin: 5px
         width: 35%
-
     .#{$module}__lbl-txt--error
         background-color: $color--barbie
         display: none

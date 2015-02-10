@@ -27,7 +27,7 @@
         state('home', {
           url: '/',
           controller: 'MainCtrl',
-          controllerAs: 'fm',
+          controllerAs: 'home',
           templateUrl: 'src/views/main.html'
         })
         .state('components', {

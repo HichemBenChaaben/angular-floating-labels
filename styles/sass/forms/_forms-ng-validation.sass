@@ -1,0 +1,24 @@
+// ==== Angular form validation ==== //
+
+$module: '#{$namespace}frm'
+
+.#{$namespace}frm
+    span.ng-valid-email
+        transition: all 0.2s ease-out
+        opacity: 0
+
+span.#{$namespace}frm__validation
+    background-color: $color--barbie !important
+    color: white
+    border-radius: 4px
+    display: block
+    margin-bottom: 6px
+    margin-top: -4px
+    margin: 0px
+    padding: 5px 20px
+    transition: all 0.2s ease-in
+    opacity: 1
+    .#{$namespace}frm__el &
+        margin-bottom: 0px
+        transition: all 0.2s ease-in
+

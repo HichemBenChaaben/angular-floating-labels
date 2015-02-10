@@ -40,25 +40,43 @@
     </div>
     <div class="row">
         <div class="col-md-9 col-md-offset-3">
-            <form name="floating-labels">
+            <form name="flabel" method="post">
                 <div class="row">
                     <div class="col-md-8">
+                        {{home.simpleNumber}}
                         <input fl-label
-                               type="number"
+                               name="emailAdress"
+                               type="email"
                                required
-                               placeholder="Type your registration number..."
-                               fl-tip="{{fm.tip}}"
-                               value="qwpdypqw[qwdoqwdoqwd"
-                               maxLength="30">
-                        <input fl-label
-                               type="text"
-                               required
-                               placeholder="Type your registration number..."
-                               fl-tip="{{fm.tip}}"
+                               ng-model="emailAddress"
+                               placeholder="Type your email here"
+                               fl-tip="This is a simple tooltip"
                                value=""
-                               maxLength="30">
+                               maxLength="60"/>
+                        <span class="fl-frm__validation" ng-show="flabel.emailAdress.$error.email">Hey please type a valid email</span>
+                        <span class="fl-frm__validation" ng-show="flabel.emailAdress.$error.invalid">Hey this is an invalid email</span>
+                        <span class="fl-frm__validation" ng-show="flabel.emailAdress.$error.minlength">Too short</span>
+                        <span class="fl-frm__validation" ng-show="flabel.emailAdress.$error.maxLength">Too long</span>
+                        <span class="fl-frm__validation" ng-show="flabel.emailAdress.$valid">Valid email</span>
                     </div>
-               </div>
+                </div>
+                    <div class="row">
+                    <div class="col-md-8">
+                        <input fl-label
+                               name="name"
+                               ng-model="name"
+                               required="required"
+                               maxLength="56"
+                               minLength="6"
+                               placeholder="Please type your name"
+                               fl-tip="Please type your first name"
+                               value=""/>
+                        <span class="fl__validation" ng-show="flabel.name.$error.maxLength">
+                            Form validation error, too short
+                        </span>
+                        <br/><br/><br/><br/>
+                    </div>
+                </div>
             </form>
         </div>
     </div>

@@ -272,8 +272,8 @@
   top: 2.075px;
   transform: rotate(-45deg);
   width: 21.875px;
-  background: #FFFFFF;
-  box-shadow: 0 5.2px 0 0 #FFFFFF;
+  background: transparent;
+  box-shadow: 0 5.2px 0 0 transparent;
   left: 5.2px; }
   .ie9 .fl-frm__el--bool:checked ~ .fl-frm__lbl-txt--bool--check:after {
     direction: ltr; }
@@ -675,9 +675,12 @@ input-placeholder {
   top: 13px;
   left: 5px; }
 
-.fl-frm span.ng-valid-email {
+.fl-frm__el span.ng-valid-email {
   transition: all 0.2s ease-out;
   opacity: 0; }
+.fl-frm__el span.ng-invalid, .fl-frm__el span.ng-invalid-email {
+  transition: opacity 0.2 ease-in ease-out;
+  opacity: 1; }
 
 span.fl-frm__validation {
   background-color: #EC4C88 !important;

@@ -57,7 +57,6 @@
                         <span class="fl-frm__validation" ng-show="flabel.emailAdress.$error.invalid">Hey this is an invalid email</span>
                         <span class="fl-frm__validation" ng-show="flabel.emailAdress.$error.minlength">Too short</span>
                         <span class="fl-frm__validation" ng-show="flabel.emailAdress.$error.maxLength">Too long</span>
-                        <span class="fl-frm__validation" ng-show="flabel.emailAdress.$valid">Valid email</span>
                     </div>
                 </div>
                     <div class="row">
@@ -66,15 +65,24 @@
                                name="name"
                                ng-model="name"
                                required="required"
-                               maxLength="56"
+                               maxLength="2"
+                               ng-maxlength="1"
                                minLength="6"
                                placeholder="Please type your name"
                                fl-tip="Please type your first name"
                                value=""/>
-                        <span class="fl__validation" ng-show="flabel.name.$error.maxLength">
+                        <span class="fl__validation" ng-show="flabel.name.$error.max-length">
                             Form validation error, too short
                         </span>
-                        <br/><br/><br/><br/>
+                        <label class="fl-frm__lbl fl-frm__lbl--bool">
+                            <input type="checkbox" class="fl-frm__el--bool js-field-has-value" checked="">
+                            <span class="fl-frm__lbl-txt--bool fl-frm__lbl-txt--bool--check">Hi, I'm a checkbox</span>
+                        </label>
+                        <br>
+                        <br>
+                        <br>
+                        <br>
+                        <br>
                     </div>
                 </div>
             </form>

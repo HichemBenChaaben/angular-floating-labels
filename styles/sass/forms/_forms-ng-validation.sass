@@ -2,10 +2,13 @@
 
 $module: '#{$namespace}frm'
 
-.#{$namespace}frm
+.#{$namespace}frm__el
     span.ng-valid-email
         transition: all 0.2s ease-out
         opacity: 0
+    span.ng-invalid, span.ng-invalid-email
+        transition: opacity 0.2 ease-in ease-out
+        opacity: 1
 
 span.#{$namespace}frm__validation
     background-color: $color--barbie !important

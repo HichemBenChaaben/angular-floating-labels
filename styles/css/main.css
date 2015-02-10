@@ -272,8 +272,8 @@ button::-moz-focus-inner, input::-moz-focus-inner, legend {
   top: 2.075px;
   transform: rotate(-45deg);
   width: 21.875px;
-  background: #FFFFFF;
-  box-shadow: 0 5.2px 0 0 #FFFFFF;
+  background: transparent;
+  box-shadow: 0 5.2px 0 0 transparent;
   left: 5.2px; }
   .ie9 .fl-frm__el--bool:checked ~ .fl-frm__lbl-txt--bool--check:after {
     direction: ltr; }

@@ -1,0 +1,1 @@
+!function(t){"use strict";function n(){var t=this;t.things=["one","two","three"]}t.module.controller("ContactCtrl as ct",n),n.$inject=["$scope"]}(angular);

@@ -6,7 +6,6 @@
                 restrict: 'A',
                 priority: 1,
                 controller: 'updateMaxCount',
-                // passing the form and the ng-model to the directive
                 require: ['^form','ngModel'],
                 scope: {
                     count: "=count",
@@ -35,18 +34,13 @@
                         var tmplMax = '<span class="js-char-counter {{flErrorClass}}">' +
                             '<span class="js-type">{{chars}}</span>/' + max + '</span>';
 
-                        var errorMessages = '<span class="fl-frm__lbl-txt--error ng-show="isError">{{flErrors}}</span>';
-
                         tmplMax = $compile(tmplMax)($scope);
-                        errorMessages = $compile(errorMessages)($scope);
-
                     }
 
                     $element.wrap('<label class="fl-frm__lbl ' + requiredClass + '">')
                         .after(tmplMax)
                         .addClass('fl-frm__el fl-frm__el--txt')
-                        .after('<span class="fl-frm__lbl-txt">' + placeholderVal + '</span>')
-                        .after(errorMessages);
+                        .after('<span class="fl-frm__lbl-txt">' + placeholderVal + '</span>');
 
                     // If we are on the edit mode we should add the label
                     if ($attrs.value && $attrs.value.length > 0) {
@@ -79,8 +73,8 @@
 
                     // Add a floating label
                     function addFl() {
-                            $element.addClass('js-field-has-value');
-                        }
+                        $element.addClass('js-field-has-value');
+                    }
                         // remove a floating label
                     function removeFl() {
                         $element.removeClass('js-field-has-value');
@@ -121,6 +115,38 @@
                     $element.wrap('<label class="fl-frm__lbl ' + requiredClass + '">')
                         .addClass('fl-frm__el fl-frm__el--sel placeholder')
                         .after('<span class="fl-frm__lbl-txt">' + placeholderVal + '</span>');
+                }
+            }
+        })
+        .directive('flCheckbox', function() {
+            return {
+                priority: 1,
+                restrict: 'A',
+                link: function($scope, $element, $attrs) {
+                    var tmpl = '<label class="fl-frm__lbl fl-frm__lbl--bool">';
+                    var checkTmpl = '<span class="fl-frm__lbl-txt--bool fl-frm__lbl-txt--bool--check">'+
+                    '</span>';
+                    var dataLabel = '<span>' + $attrs.label + '</span>';
+
+                    $element.addClass('fl-frm__el--bool')
+                        .wrap(tmpl)
+                        .after(dataLabel)
+                        .after(checkTmpl);
+                }
+            }
+        })
+        .directive('flRadio', function() {
+            return {
+                priority: 1,
+                restrict: 'A',
+                link: function($scope, $element, $attrs) {
+                    var tmpl = '<span class="fl-frm__lbl-txt--bool fl-frm__lbl-txt--bool--radio"></span>';
+                    var radioLabl = '<span>'+$attrs.label+'</span>';
+
+                    $element.addClass('fl-frm__el--bool')
+                        .wrap('<label class="fl-frm__lbl fl-frm__lbl--bool">')
+                        .after(radioLabl)
+                        .after(tmpl);
                 }
             }
         });

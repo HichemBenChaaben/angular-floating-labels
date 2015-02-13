@@ -1,0 +1,1 @@
+!function(){"use strict";function o(){var o=this;o.simpleNumber="123",validateForm(o.registration),validateForm=function(o){o.length>10&&console.log("too many characters..")},o.scrollTo=function(o){$location.hash(o),$anchorScroll()}}angular.module("app").controller("FormsCtrl",o),o.$inject=["$scope","$location","$anchorScroll"]}();

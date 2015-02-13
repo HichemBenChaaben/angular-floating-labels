@@ -20,6 +20,7 @@
     "ng-animate-css": "~0.0.4",
     "angular-highlightjs": "~0.3.2",
     "zeroclipboard": "~2.2.0",
-    "ng-clip": "~0.2.6"
+    "ng-clip": "~0.2.6",
+    "font-awesome.min": "http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css"
   }
 }

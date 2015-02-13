@@ -6,7 +6,7 @@
                 restrict: 'A',
                 priority: 1,
                 controller: 'updateMaxCount',
-                require: ['^form','ngModel'],
+                require: ['^form', 'ngModel'],
                 scope: {
                     count: "=count",
                     chars: '@chars',
@@ -17,9 +17,6 @@
                         count = 0,
                         something = 0,
                         tmplMax = '';
-
-                    console.log('here is the form name' + $formCtrl.value);
-                    console.log('Loop inside the form');
 
                     if (!$attrs.required) {
                         requiredClass = "";
@@ -71,11 +68,11 @@
                         return event.target.value.length > 0 ? addFl() : removeFl();
                     });
 
-                    // Add a floating label
+                    // Add a floating label class
                     function addFl() {
                         $element.addClass('js-field-has-value');
                     }
-                        // remove a floating label
+                    // remove a floating label class
                     function removeFl() {
                         $element.removeClass('js-field-has-value');
                     }
@@ -118,14 +115,15 @@
                 }
             }
         })
+        // Directive for checkboxes
         .directive('flCheckbox', function() {
             return {
                 priority: 1,
                 restrict: 'A',
                 link: function($scope, $element, $attrs) {
                     var tmpl = '<label class="fl-frm__lbl fl-frm__lbl--bool">';
-                    var checkTmpl = '<span class="fl-frm__lbl-txt--bool fl-frm__lbl-txt--bool--check">'+
-                    '</span>';
+                    var checkTmpl = '<span class="fl-frm__lbl-txt--bool fl-frm__lbl-txt--bool--check">' +
+                        '</span>';
                     var dataLabel = '<span>' + $attrs.label + '</span>';
 
                     $element.addClass('fl-frm__el--bool')
@@ -135,18 +133,21 @@
                 }
             }
         })
+        // Directive for radit buttons
         .directive('flRadio', function() {
             return {
                 priority: 1,
                 restrict: 'A',
                 link: function($scope, $element, $attrs) {
-                    var tmpl = '<span class="fl-frm__lbl-txt--bool fl-frm__lbl-txt--bool--radio"></span>';
-                    var radioLabl = '<span>'+$attrs.label+'</span>';
+                    var tmpl = '<span></span>',
+                        radioLabl = '<span>' + $attrs.label + '</span>',
+                        radioButtonClass = 'fl-frm__lbl-txt--bool fl-frm__lbl-txt--bool--radio';
 
                     $element.addClass('fl-frm__el--bool')
                         .wrap('<label class="fl-frm__lbl fl-frm__lbl--bool">')
                         .after(radioLabl)
-                        .after(tmpl);
+                        .after(tmpl)
+                        .addClass(radioButtonClass);
                 }
             }
         });

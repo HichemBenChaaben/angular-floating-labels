@@ -85,8 +85,6 @@
         })
         // Adding a tooltip directive
         .directive('flTip', function() {
-            // it doesn't depend on whatever you are passing to it
-            // it will simply work
             return {
                 scope: false,
                 restrict: 'A',
@@ -139,15 +137,15 @@
                 priority: 1,
                 restrict: 'A',
                 link: function($scope, $element, $attrs) {
-                    var tmpl = '<span></span>',
-                        radioLabl = '<span>' + $attrs.label + '</span>',
-                        radioButtonClass = 'fl-frm__lbl-txt--bool fl-frm__lbl-txt--bool--radio';
+                    var tmpl = '<span class="fl-frm__lbl-txt--bool fl-frm__lbl-txt--bool--radio"></span>',
+                        radioLabl = '<span class="fl-frm__lbl-txt--bool__data-label">' +
+                            $attrs.label +
+                            '</span>';
 
                     $element.addClass('fl-frm__el--bool')
                         .wrap('<label class="fl-frm__lbl fl-frm__lbl--bool">')
                         .after(radioLabl)
-                        .after(tmpl)
-                        .addClass(radioButtonClass);
+                        .after(tmpl);
                 }
             }
         });

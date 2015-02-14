@@ -45,18 +45,30 @@
                     <div class="col-md-8">
                         {{home.simpleNumber}}
                         <input fl-label
+                               fl-tip="This is a simple tooltip"
                                name="emailAdress"
-                               type="email"
-                               required
                                ng-model="emailAddress"
                                placeholder="Type your email here"
-                               fl-tip="This is a simple tooltip"
+                               required
+                               type="email"
                                value=""
                                maxLength="60"/>
-                        <span class="fl-frm__validation" ng-show="flabel.emailAdress.$error.email">Hey please type a valid email</span>
-                        <span class="fl-frm__validation" ng-show="flabel.emailAdress.$error.invalid">Hey this is an invalid email</span>
-                        <span class="fl-frm__validation" ng-show="flabel.emailAdress.$error.minlength">Too short</span>
-                        <span class="fl-frm__validation" ng-show="flabel.emailAdress.$error.maxLength">Too long</span>
+                        <span class="fl-frm__validation"
+                              ng-show="flabel.emailAdress.$error.email">
+                            Hey please type a valid email
+                        </span>
+                        <span class="fl-frm__validation"
+                              ng-show="flabel.emailAdress.$error.invalid">
+                            Hey this is an invalid email
+                        </span>
+                        <span class="fl-frm__validation"
+                              ng-show="flabel.emailAdress.$error.minlength">
+                            Too short
+                        </span>
+                        <span class="fl-frm__validation"
+                              ng-show="flabel.emailAdress.$error.maxLength">
+                            Too long
+                        </span>
                     </div>
                 </div>
                 <div class="row">
@@ -74,16 +86,58 @@
                         <span class="fl__validation" ng-show="flabel.name.$error.max-length">
                             Form validation error, too short
                         </span>
-                        <label class="fl-frm__lbl fl-frm__lbl--bool">
-                            <input type="checkbox" class="fl-frm__el--bool">
-                            <span class="fl-frm__lbl-txt--bool fl-frm__lbl-txt--bool--check"></span>
-                            <span>Hi, I'm a checkbox</span>
-                        </label>
-                        <p>Floating label checkbox element </p>
+                        <input type="radio"
+                               fl-radio
+                               name="group1"
+                               data-label="i'm a developer"/>
+                        <input type="radio"
+                               name="group1"
+                               fl-radio
+                               data-label="i'm a designer">
                         <input type="checkbox"
-                               data-label="this is a simple checkbox"
+                               data-label="I want to be contacted by email when something cool is added to the floating labels"
                                fl-checkbox
                                checked/>
+                        <textarea name="comments"
+                                  fl-label
+                                  value=""
+                                  ng-model="comments"
+                                  fl-tip="Any ideas? ;)"
+                                  class=""
+                                  cols="20"
+                                  rows="20"
+                                  placeholder="Your feedback about floating labels"></textarea>
+                        <hr/>
+                        <h3>Drop down lists</h3>
+                        <div ng-include="'src/views/_countries-dropdown.html'"></div>
+                        <hr/>
+                        <textarea fl-label value=""
+                            placeholder="a placeholder"
+                            row="20"
+                            cols="20"
+                            required
+                            fl-tip="Simple tooltip"
+                            ng-model="comments"></textarea>
+                        <hr/>
+                        <label class="fl-frm__lbl">
+                            <textarea cols="20"
+                                    rows="20"
+                                    value=""
+                                    placeholder="Textarea with character counter"
+                                    class="fl-frm__el fl-frm__el--area"
+                                    maxlength="50"
+                                    data-char-counter=""></textarea>
+                            <span class="js-char-counter"><span data-current-char-count="">0</span>/50</span>
+                            <span class="fl-frm__lbl-txt fl-frm__lbl-txt--area">Textarea with char counter</span>
+                            <span class="fl-frm__tooltip">Here's a handy little hint</span>
+                        </label>
+                        <select>
+                            <option default>Tell us where you coming from</option>
+                            <option ng-repeat="country in countries"
+                                    value="{{country}}">
+                                {{country}}
+                            </option>
+                        </select>
                     </div>
                 </div>
             </form>

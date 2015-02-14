@@ -21,6 +21,8 @@
 
         vm.simpleNumber = '123';
 
+        $scope.countries = ['tunisia', 'dubai', 'usa', 'france', 'brazil'];
+        var something = 'This is the something variable';
         vm.validateNumber = function(arg) {
             if(!arg) {
                 arg = '';

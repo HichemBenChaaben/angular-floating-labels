@@ -304,6 +304,9 @@
   .fl-frm__el--bool[disabled] ~ .fl-frm__lbl-txt--bool--radio:after:hover {
     color: #6B6D70; }
 
+.fl-frm__el--bool__data-label {
+  margin-right: 35px; }
+
 .js-char-counter {
   color: #989898;
   font-family: "arial", sans-serif;

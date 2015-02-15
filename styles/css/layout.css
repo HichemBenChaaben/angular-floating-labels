@@ -1,5 +1,21 @@
 html, body {
-  background-color: white; }
+  background-color: white;
+  font-size: 12px;
+  font-family: arial, sans; }
+
+.header-nav {
+  background-color: #1b2032;
+  color: white;
+  font-size: 1.4rem; }
+  .header-nav__title {
+    font-size: 2rem; }
+  .header-nav li {
+    background-color: #1b2032; }
+    .header-nav li a {
+      color: white; }
+      .header-nav li a:hover {
+        color: white;
+        background-color: #1b2032; }
 
 .header {
   background-color: #16a085 !important;
@@ -10,12 +26,9 @@ html, body {
 
 .jumb {
   color: white;
-  background-color: #e74c3c !important;
+  background-color: #1b2032 !important;
   text-align: center;
   padding-bottom: 20px; }
-  .jumb button {
-    color: white;
-    background-color: #2980b9; }
   .jumb .cards {
     margin: 0 auto;
     text-align: center; }

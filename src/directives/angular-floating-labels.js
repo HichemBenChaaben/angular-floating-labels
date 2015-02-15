@@ -24,11 +24,15 @@
                     // template or max length
                     if ($attrs.maxlength) {
                         // set the typed value
-                        var max = $attrs.maxlength;
+                        var max = $attrs.maxlength,
+                            errorClass = '';
                         $scope.chars = $attrs.value.length;
 
+                        if($scope.chars >= $attrs.maxLength - 5) {
+                            errorClass = 'js-char-counter-max';
+                        }
                         // set of typed values should be after input element
-                        var tmplMax = '<span class="js-char-counter {{flErrorClass}}">' +
+                        var tmplMax = '<span class="js-char-counter ' + errorClass +'">' +
                             '<span class="js-type">{{chars}}</span>/' + max + '</span>';
 
                         tmplMax = $compile(tmplMax)($scope);
@@ -44,11 +48,6 @@
                         // Add a floating label
                         addFl();
                     }
-                    // if the type is number then we need a workaround thanks w3c
-                    if ($attrs.type === 'number') {
-                        console.log('number....');
-                    }
-
                     // Change the counter value if maxlength is set in the Gui
                     $element.bind('keypress keyup', function(event) {
                         // Not permitted to type a string in a number type input
@@ -59,7 +58,6 @@
                                 event.target.value = val.substr(1, val.length - 1);
                             }
                         }
-
                         $scope.chars = event.target.value.length;
                         $scope.$apply();
                     });

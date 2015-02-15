@@ -78,14 +78,9 @@ $module: '#{$namespace}frm'
     .ie8 &, .ie9 &, [data-useragent*="Firefox"] &
         display: none
         content: none
-
-    // Arrow down from ss-pikachu
-    font-family: ss-pikachu
-    content: '\e63b'
     font-size: 20px
     line-height: 0
     float: $trailing
-    pointer-events: none
     position: relative
     color: $color--smog
 
@@ -101,6 +96,3 @@ $module: '#{$namespace}frm'
     top:  -$frm-el-height-small / 2
     #{$trailing}: $frm-el-x-spacing - 14px
 
-// Hides the default arrow on IE10+
-.#{$module}__el--sel::-ms-expand
-    display: none

@@ -45,7 +45,8 @@
         </div>
         <form name="myform">
             <h3 id="input-text">Simple input text</h3>
-            <input fl-label name="name" placeholder="Type your name" value=""/>
+            <input fl-label ng-model="myform.nameMe" name="name" placeholder="Type your name" value=""/>
+            <!-- copy to clipboard -->
             <div class="code-example">
                 <span class="copy-me" compile="false">
                     <a href="#">
@@ -59,7 +60,8 @@
             </div>
             <hr/>
             <h4 id="text-required">Input text required</h4>
-            <input fl-label required name="name" placeholder="i'm a placeholder" value="" required/>
+            <input fl-label required ng-model="myform.nameRequired" name="name-required" placeholder="i'm a placeholder" value=""/>
+            <!-- copy to clipboard -->
             <div class="code-example">
                 <span class="copy-me" compile="false">
                     <a href="#">
@@ -74,10 +76,12 @@
             <hr/>
             <h4 id="input-with-tooltip">Input text with tooltip</h4>
             <input fl-label
-                   required
+                   name="input-with-tooltip"
+                   ng-model="myform.withTooltip"
                    placeholder="This is a sample placeholder"
                    fl-tip="This is a handy tooltip"
                    value=""/>
+            <!-- copy to clipboard -->
             <div class="code-example">
                 <span class="copy-me" compile="false">
                     <a href="#">
@@ -95,8 +99,10 @@
                    placeholder="This is a placeholder"
                    required
                    value=""
+                   ng-model="myform.nameCharcounter"
                    fl-tip="this is a handy tooltip"
                    maxLength="55"/>
+            <!-- copy to clipboard -->
             <div class="code-example">
                 <span class="copy-me" compile="false">
                     <a href="#">
@@ -109,32 +115,39 @@
                 </div>
             </div>
             <hr/>
-            <h4>Input text with error</h4>
-            <form novalidate>
-                <input fl-label
-                   type="email"
-                   ng-model="name"
-                   onChange = ""
-                   value=""
-                   required
-                   placeholder="This is a simple placeholder"
-                   fl-tip="This is a handy tooltip"
-                   maxLength="55"
-                   fl-error="This is a simple error message"/>
-            </form>
+            <h4>Fl radio</h4>
+            <input type="radio"
+                   fl-radio
+                   data-label="i'm a radio button"/>
+
+            <!-- copy to clipboard -->
             <div class="code-example">
-               <span class="copy-me" compile="false">
-                   <a href="#">
-                       <span class="fa fa-clipboard">&nbsp;</span>
-                       Copy
-                   </a>
-               </span>
-               <div hljs language="html" class="dcode" compile="true">
-                   <input fl-label name="name" ng-model="name" fl-tip="This is a handy tooltip" placeholder="i'm a placeholder" value="" required/>
-               </div>
+                <span class="copy-me" compile="false">
+                    <a href="#">
+                        <span class="fa fa-clipboard">&nbsp;</span>
+                        Copy
+                    </a>
+                </span>
+                <div hljs language="html" class="dcode" compile="true">
+                    <input fl-radio unchecked data-label="i'm a radio button"/>
+                </div>
             </div>
             <hr/>
-
+            <h4>Fl Checkbox</h4>
+            <input fl-checkbox type="checkbox" data-label="I'm a checkbox"/>
+            <!-- copy to clipboard -->
+            <div class="code-example">
+                <span class="copy-me" compile="false">
+                    <a href="#">
+                        <span class="fa fa-clipboard">&nbsp;</span>
+                        Copy
+                    </a>
+                </span>
+                <div hljs language="html" class="dcode" compile="true">
+                    <input fl-checkbox unchecked data-label="i'm a checkbox"/>
+                </div>
+            </div>
+            <hr/>
             <h2>Customize the css</h2>
             <div class="alert alert-info">
                 <span>
@@ -144,23 +157,6 @@
                 <p>
                 You can override the css class .fl-frm__lbl--required:before<br/>
                 The required styles are part of the floating label pattern but still you can change the default ones and add your own styles.
-                </p>
-            </div>
-            <h2 id="input-text-tooltip">Input text with toolip</h3>
-            <input fl-label
-            value=""
-            name="tooltip"
-            placeholder="i'm the placeholder"
-            fl-tip="I'm the tooltip"
-            required="required"/>
-            <div class="alert alert-info">
-                <span>
-                <span class="fa fa-lightbulb-o">&nbsp;</span>
-                <b>Customize the required css class</b>
-                </span>
-                <p>
-                You can override the css class .fl-frm__tooltip<br/>
-                If you are have your own tooltips you can still use them the way you want and you can also modify the default ones like changing font-size or colors maintaing your own styles.
                 </p>
             </div>
     </div>

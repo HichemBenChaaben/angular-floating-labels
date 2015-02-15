@@ -17,9 +17,26 @@ $orange: #f29b11
 $pumpkin: #d35400
 $pomegrenade: #c0392b
 $silver: #bdc3c7
+$blue-whale: #28324E
+$blue-petrol: #1b2032
 
 html, body
     background-color: white
+    font-size: 12px
+    font-family: arial, sans
+.header-nav
+    background-color: $blue-petrol
+    color: white
+    font-size: 1.4rem
+    &__title
+        font-size: 2.0rem
+    li
+        background-color: $blue-petrol
+        a
+            color: white
+            &:hover
+                color: white
+                background-color: $blue-petrol
 .header
     background-color: $green-sea !important
     color: white
@@ -28,12 +45,9 @@ html, body
         margin-bottom: 0
 .jumb
     color: white
-    background-color: $peter-river !important
+    background-color: $blue-petrol !important
     text-align: center
     padding-bottom: 20px
-    button
-        color: white
-        background-color: $belize
     .cards
         margin: 0 auto
         text-align: center

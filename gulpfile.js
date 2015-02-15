@@ -4,12 +4,22 @@ var gulp = require('gulp'),
     autoprefixer = require('gulp-autoprefixer'),
     uglify = require('gulp-uglify'),
     browserSync = require('browser-sync'),
-    reload = browserSync.reload;
+    htmlmin = require('gulp-html-minifier'),
+    ngmin = require('gulp-ngmin');
+
 
 // Paths of the app
 var sassSrc = './styles/sass/**/*.sass';
 var cssDest = './styles/css/';
 var jsDist = './scripts';
+var htmlSrc = './src/**/*.html';
+
+
+gulp.task('ngmin', function () {
+    return gulp.src('./src/**/*.js')
+        .pipe(ngmin({dynamic: true}))
+        .pipe(gulp.dest(jsDist));
+});
 
 gulp.task('browser-sync', function() {
     var files = [
@@ -23,11 +33,6 @@ gulp.task('browser-sync', function() {
             port: '9000'
         }
     });
-});
-
-// Reload all Browsers
-gulp.task('bs-reload', function() {
-    browserSync.reload();
 });
 
 // Sass task with
@@ -55,28 +60,31 @@ gulp.task('autoprefixer', function() {
 
 
 gulp.task('jshint', function() {
-    return gulp.src('./src/*.js')
+    return gulp.src('./src/**/*.js')
         .pipe(jshint())
-        .pipe(jshint.reporter('default'));
+        .pipe(jshint.reporter('jshint-stylish'));
 });
 
 gulp.task('compress:js', function() {
-    gulp.src('src/*.js')
+    gulp.src('src/**/*.js')
         .pipe(uglify())
-        .dest(gulp.dest(jsDist));
+        .pipe(gulp.dest(jsDist));
 });
 
-gulp.task('uglify:build', function() {
-    // uglify task for the build
+gulp.task('minify:html', function() {
+  gulp.src(htmlSrc)
+    .pipe(htmlmin({collapseWhitespace: true}))
+    .pipe(gulp.dest('./scripts'))
 });
 
-gulp.task('build', ['compress:js:build'], function() {
+gulp.task('build', ['ngmin', 'compress:js', 'minify:html'], function() {
     // build task copy files to the build folder as min and src
+    console.log('The build was created successfully xD');
 });
 
 gulp.task('watch', ['styles', 'autoprefixer', 'jshint', 'browser-sync'], function() {
     gulp.watch('./styles/sass/**/*.sass', ['styles', 'autoprefixer']);
-    gulp.watch('./src/**/*.js', ['jshint']);
+    gulp.watch('./src/**/*.js', ['jshint', 'build']);
 });
 
-gulp.task('default', ['styles', 'autoprefixer', 'watch']);
+gulp.task('default', ['styles', 'autoprefixer', 'jshint', 'watch']);

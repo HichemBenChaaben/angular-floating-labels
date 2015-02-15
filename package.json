@@ -26,8 +26,11 @@
     "gulp": "^3.8.10",
     "gulp-autoprefixer": "^2.0.0",
     "gulp-cssmin": "^0.1.6",
+    "gulp-html-minifier": "^0.1.6",
     "gulp-jshint": "^1.9.0",
+    "gulp-ngmin": "^0.3.0",
     "gulp-ruby-sass": "^0.7.1",
-    "gulp-uglify": "^1.0.2"
+    "gulp-uglify": "^1.1.0",
+    "jshint-stylish": "^1.0.0"
   }
 }

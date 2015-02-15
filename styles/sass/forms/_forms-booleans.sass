@@ -75,10 +75,10 @@ $frm-el-bool-font-size: 1.6rem
     width: $frm-el-bool-size * 0.875
 
     // The TOP stroke that goes through the box
-    background: $color--bleach
+    background: transparent
 
     // The BOTTOM stroke that goes through the box
-    box-shadow: 0 ($frm-el-bool-size * 0.208) 0 0 $color--bleach
+    box-shadow: 0 ($frm-el-bool-size * 0.208) 0 0 transparent
 
     // IE9 fix
     .ie9 &
@@ -122,3 +122,7 @@ $frm-el-bool-font-size: 1.6rem
     opacity: 1
     &:hover
         color: $color--soot
+.#{$module}__el--bool
+    &__data-label
+        margin-#{$trailing}: 35px
+

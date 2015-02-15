@@ -1,5 +1,21 @@
 html, body {
-  background-color: white; }
+  background-color: white;
+  font-size: 12px;
+  font-family: arial, sans; }
+
+.header-nav {
+  background-color: #1b2032;
+  color: white;
+  font-size: 1.4rem; }
+  .header-nav__title {
+    font-size: 2rem; }
+  .header-nav li {
+    background-color: #1b2032; }
+    .header-nav li a {
+      color: white; }
+      .header-nav li a:hover {
+        color: white;
+        background-color: #1b2032; }
 
 .header {
   background-color: #16a085 !important;
@@ -10,12 +26,9 @@ html, body {
 
 .jumb {
   color: white;
-  background-color: #e74c3c !important;
+  background-color: #1b2032 !important;
   text-align: center;
   padding-bottom: 20px; }
-  .jumb button {
-    color: white;
-    background-color: #2980b9; }
   .jumb .cards {
     margin: 0 auto;
     text-align: center; }
@@ -34,5 +47,48 @@ html, body {
   border: 2px thin #bdc3c7;
   margin: 0;
   width: 100%; }
+
+.btn {
+  border-bottom: 3px solid #ebeced;
+  border-radius: 4px; }
+
+.sidebar {
+  margin-top: 25px; }
+  .sidebar li {
+    list-style: none; }
+  .sidebar a {
+    text-decoration: none; }
+  @media (min-width: 760px) {
+    .sidebar {
+      position: fixed;
+      width: 20%; } }
+
+.dcode {
+  text-indent: -150px; }
+
+span.hljs.html {
+  padding-top: 20px; }
+  span.hljs.html pre {
+    padding-right: 64px; }
+
+.code-example {
+  position: relative; }
+  .code-example .copy-me {
+    font-size: 11px;
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 10px;
+    cursor: pointer;
+    border-radius: 0px 0px 0px 9px;
+    border: 1px solid #ccc;
+    background-color: white; }
+    .code-example .copy-me:hover {
+      text-decoration: none;
+      background-color: #f4f4f4; }
+    .code-example .copy-me a {
+      text-decoration: none; }
+      .code-example .copy-me a:hover {
+        color: #337ab7; }
 
 /*# sourceMappingURL=layout.css.map */

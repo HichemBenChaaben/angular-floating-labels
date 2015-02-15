@@ -1,3 +1,5 @@
+@import _breakpoint
+
 // Project config sass (non related to the angular module it self)
 $turquoise: #1abc9c
 $emerland: #2ecc71
@@ -15,39 +17,94 @@ $orange: #f29b11
 $pumpkin: #d35400
 $pomegrenade: #c0392b
 $silver: #bdc3c7
+$blue-whale: #28324E
+$blue-petrol: #1b2032
 
 html, body
-  background-color: white
-.header
-  background-color: $green-sea !important
-  color: white
-  .navbar
-    border-radius: 0
-    margin-bottom: 0
-.jumb
-  color: white
-  background-color: $alizarin !important
-  text-align: center
-  padding-bottom: 20px
-  button
+    background-color: white
+    font-size: 12px
+    font-family: arial, sans
+.header-nav
+    background-color: $blue-petrol
     color: white
-    background-color: $belize
-  .cards
-    margin: 0 auto
+    font-size: 1.4rem
+    &__title
+        font-size: 2.0rem
+    li
+        background-color: $blue-petrol
+        a
+            color: white
+            &:hover
+                color: white
+                background-color: $blue-petrol
+.header
+    background-color: $green-sea !important
+    color: white
+    .navbar
+        border-radius: 0
+        margin-bottom: 0
+.jumb
+    color: white
+    background-color: $blue-petrol !important
     text-align: center
-  .card
-    font-size: 42px
-    text-align: center
-    padding: 25px
-    margin: 10px auto
-  .thumbnail
-    border: 0
-    background-color: transparent
-    text-align: center
+    padding-bottom: 20px
+    .cards
+        margin: 0 auto
+        text-align: center
+    .card
+        font-size: 42px
+        text-align: center
+        padding: 25px
+        margin: 10px auto
+    .thumbnail
+        border: 0
+        background-color: transparent
+        text-align: center
 
 .container
-  background-color: $clouds
-  border: 2px thin $silver
-  margin: 0
-  width: 100%
+    background-color: $clouds
+    border: 2px thin $silver
+    margin: 0
+    width: 100%
 
+// Override twitter bootstrap
+.btn
+    border-bottom: 3px solid #ebeced
+    border-radius: 4px
+.sidebar
+    margin-top: 25px
+    li
+        list-style: none
+    a
+        text-decoration: none
+
+    +breakpoint(tablet)
+        position: fixed
+        width: 20%
+.dcode
+    text-indent: -150px
+
+span.hljs.html
+    padding-top: 20px
+    pre
+        padding-right: 64px
+
+.code-example
+    position: relative
+    .copy-me
+        font-size: 11px
+        position: absolute
+        top: 0
+        right: 0
+        padding: 10px
+        cursor: pointer
+        border-radius: 0px 0px 0px 9px
+        border: 1px solid #ccc
+        background-color: white
+        &:hover
+            text-decoration: none
+            background-color: #f4f4f4
+        a
+            text-decoration: none
+            &:hover
+                color: #337ab7

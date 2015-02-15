@@ -20,14 +20,14 @@
         // replace tab with 4 spaces
         hljsServiceProvider.setOptions({
           tabReplace: '  ',
-          languages: 'html javascript'
+          languages: 'html'
         });
 
         $stateProvider.
         state('home', {
           url: '/',
           controller: 'MainCtrl',
-          controllerAs: 'fm',
+          controllerAs: 'home',
           templateUrl: 'src/views/main.html'
         })
         .state('components', {

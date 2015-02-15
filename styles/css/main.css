@@ -442,6 +442,8 @@ input-placeholder {
   padding-left: 12px; }
 
 .fl-frm__sel-arrow:after {
+  content: " ";
+  background: url("http://sbstechnologies.in/Workshop/Brushed/Source%20Files/ICONS%20+%20FONT/Icons/SVG/arrow-light-round-down.svg");
   font-size: 20px;
   line-height: 0;
   float: "right";
@@ -460,6 +462,9 @@ input-placeholder {
 .fl-frm__lbl--small.fl-frm__sel-arrow:after {
   top: -18px;
   right: 6px; }
+
+.fl-frm__el--sel::-ms-expand {
+  display: none; }
 
 .fl-frm__el--switch:checked, .fl-frm__el--switch:not(checked) {
   display: none; }

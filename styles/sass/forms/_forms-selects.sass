@@ -78,6 +78,8 @@ $module: '#{$namespace}frm'
     .ie8 &, .ie9 &, [data-useragent*="Firefox"] &
         display: none
         content: none
+    content: ' '
+    background: url('http://sbstechnologies.in/Workshop/Brushed/Source%20Files/ICONS%20+%20FONT/Icons/SVG/arrow-light-round-down.svg')
     font-size: 20px
     line-height: 0
     float: $trailing
@@ -96,3 +98,6 @@ $module: '#{$namespace}frm'
     top:  -$frm-el-height-small / 2
     #{$trailing}: $frm-el-x-spacing - 14px
 
+// Hides the default arrow on IE10+
+.#{$module}__el--sel::-ms-expand
+    display: none

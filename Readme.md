@@ -3,3 +3,4 @@
 ## Angular floating labels
 
 Angular directives for creating floating labels with angular js
+

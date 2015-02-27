@@ -32,10 +32,12 @@
                 console.log('too long');
             }
         };
+
+        $scope.checked = true;
+
         $scope.doSomething = function() {
             console.log('Im the function doSomething');
         }
-        $scope.check = false;
 
         $scope.hello = 'i\'m a checkbox';
     };

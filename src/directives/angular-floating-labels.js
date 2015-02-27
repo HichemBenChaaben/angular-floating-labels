@@ -115,16 +115,17 @@
             return {
                 restrict: 'E',
                 transclude: true,
+                require: 'ngModel',
                 scope: {
                     label: '@',
-                    ngModel: '='
+                    checked: '@',
+                    ngModel: '=ngModel'
                 },
                 templateUrl: 'src/directives/angular-floating-labels-checkbox.html',
                 link: function ($scope) {
                     $scope.checkboxLabel = $scope.label;
-                    $scope.doSomething = function() {
-                        console.log('im doSomething from the directive');
-                    }
+                    $scope.checked = $scope.ngModel;
+                    console.log('the checked value is', $scope.checked, $scope.ngModel);
                 }
             }
         })

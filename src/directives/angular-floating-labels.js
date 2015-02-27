@@ -109,7 +109,27 @@
                         .addClass('fl-frm__el fl-frm__el--sel placeholder')
                         .after('<span class="fl-frm__lbl-txt">' + placeholderVal + '</span>');
                 }
-            };
+            }
+        })
+        .directive('flSel', function() {
+            return {
+                restrict: 'E',
+                transclude: true,
+                require: 'ngModel',
+                scope: {
+                    label: '@',
+                    dataSet: '@',
+                    ngModel: '=',
+                    hint: '@'
+                },
+                templateUrl: 'src/directives/angular-floating-labels-select.html',
+                controller: function($scope, $attrs) {
+                    $scope.dataSet = $scope.$parent.dataSet;
+                    $scope.hint = $scope.hint;
+                    $scope.label = $scope.label;
+                }
+            }
+
         })
         .directive('flCheckbox', function() {
             return {
@@ -122,10 +142,9 @@
                     ngModel: '=ngModel'
                 },
                 templateUrl: 'src/directives/angular-floating-labels-checkbox.html',
-                link: function ($scope) {
+                controller: function($scope) {
                     $scope.checkboxLabel = $scope.label;
                     $scope.checked = $scope.ngModel;
-                    console.log('the checked value is', $scope.checked, $scope.ngModel);
                 }
             }
         })

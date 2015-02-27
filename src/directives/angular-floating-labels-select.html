@@ -1,0 +1,9 @@
+<label class="fl-frm__lbl fl-frm__sel-arrow fl-frm__lbl--medium">
+    <select class="fl-frm__el fl-frm__el--sel placeholder">
+        <option value="--" disabled="disabled">-- Default select --</option>
+        <option value="--">-- Default select --</option>
+        <option ng-repeat="item in dataSet">{{item}}</option>
+    </select>
+    <span class="fl-frm__lbl-txt">{{label}}</span>
+    <span class="fl-frm__tooltip">{{hint}}</span>
+</label>

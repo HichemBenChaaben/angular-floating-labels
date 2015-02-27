@@ -38,8 +38,10 @@
         $scope.doSomething = function() {
             console.log('Im the function doSomething');
         }
-
         $scope.hello = 'i\'m a checkbox';
+
+        $scope.dataSet = ['one', 'two', 'three'];
+        $scope.hint = 'this is a hint from the controller';
     };
 
 })();

@@ -94,6 +94,10 @@
                                     placeholder="Your feedback about floating labels"></textarea>
                             <hr/>
                             <h3>Drop down lists</h3>
+
+                            <h4>Custom with a repeater</h4>
+                            <fl-sel dataset="{{dataset}}" hint="{{hint}}"></fl-sel>
+                            <fl-sel dataset="{{dataset}}" hint="static hint"></fl-sel>
                             <div ng-include="'src/views/_countries-dropdown.html'"></div>
                             <hr/>
                             <textarea fl-label value=""

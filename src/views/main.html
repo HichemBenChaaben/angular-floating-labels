@@ -80,29 +80,30 @@
                                 name="group1"
                                 fl-radio
                                 data-label="i'm a designer">
-                            <input type="checkbox" data-label="I want to be contacted by email when something cool is added to the floating labels"
-                            fl-checkbox
-                            checked/>
+
+                            <p>Element checkbox, {{hello}}</p>
+                            <fl-checkbox label='{{hello}}'></fl-checkbox>
+
                             <textarea name="comments"
-                            fl-label
-                            value=""
-                            ng-model="comments"
-                            fl-tip="Any ideas? ;)"
-                            class=""
-                            cols="20"
-                            rows="20"
-                            placeholder="Your feedback about floating labels"></textarea>
+                                    fl-label
+                                    value=""
+                                    ng-model="comments"
+                                    fl-tip="Any ideas? ;)"
+                                    class=""
+                                    cols="20"
+                                    rows="20"
+                                    placeholder="Your feedback about floating labels"></textarea>
                             <hr/>
                             <h3>Drop down lists</h3>
                             <div ng-include="'src/views/_countries-dropdown.html'"></div>
                             <hr/>
                             <textarea fl-label value=""
-                            placeholder="a placeholder"
-                            row="20"
-                            cols="20"
-                            required
-                            fl-tip="Simple tooltip"
-                            ng-model="comments"></textarea>
+                                    placeholder="a placeholder"
+                                    row="20"
+                                    cols="20"
+                                    required
+                                    fl-tip="Simple tooltip"
+                                    ng-model="comments"></textarea>
                             <hr/>
                             <label class="fl-frm__lbl">
                                 <textarea cols="20"

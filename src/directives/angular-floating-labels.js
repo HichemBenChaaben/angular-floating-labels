@@ -111,21 +111,20 @@
                 }
             };
         })
-        // Directive for checkboxes
         .directive('flCheckbox', function() {
             return {
-                priority: 1,
-                restrict: 'A',
-                link: function($scope, $element, $attrs) {
-                    var tmpl = '<label class="fl-frm__lbl fl-frm__lbl--bool">';
-                    var checkTmpl = '<span class="fl-frm__lbl-txt--bool fl-frm__lbl-txt--bool--check">' +
-                        '</span>';
-                    var dataLabel = '<span>' + $attrs.label + '</span>';
-
-                    $element.addClass('fl-frm__el--bool')
-                        .wrap(tmpl)
-                        .after(dataLabel)
-                        .after(checkTmpl);
+                restrict: 'E',
+                transclude: true,
+                scope: {
+                    label: '@',
+                    ngModel: '='
+                },
+                templateUrl: 'src/directives/angular-floating-labels-checkbox.html',
+                link: function ($scope) {
+                    $scope.checkboxLabel = $scope.label;
+                    $scope.doSomething = function() {
+                        console.log('im doSomething from the directive');
+                    }
                 }
             }
         })

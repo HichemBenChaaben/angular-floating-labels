@@ -31,8 +31,13 @@
             if(arg.length > 10) {
                 console.log('too long');
             }
+        };
+        $scope.doSomething = function() {
+            console.log('Im the function doSomething');
         }
+        $scope.check = false;
 
+        $scope.hello = 'i\'m a checkbox';
     };
 
 })();

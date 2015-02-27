@@ -34,9 +34,11 @@
                     controller: 'ContactCtrl',
                     templateUrl: 'src/views/contact.html'
                 })
-                .state('demo', {
-                    url: 'demo',
-                    templateUrl: 'src/views/demo.html'
+                .state('test', {
+                    url: 'test',
+                    controller: 'TestCtrl',
+                    cotrollerAs: 'test',
+                    templateUrl: 'src/views/test.html'
                 })
                 .state('cs', {
                     url: '/floating-labels-contributors',

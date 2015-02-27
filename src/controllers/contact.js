@@ -1,4 +1,4 @@
-(function(window) {
+(function() {
 
   'use strict';
 
@@ -12,4 +12,4 @@
     vm.things = ['one', 'two', 'three'];
   };
 
-})(window, undefined);
+})();

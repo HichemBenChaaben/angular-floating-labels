@@ -7,7 +7,6 @@ var gulp = require('gulp'),
     htmlmin = require('gulp-html-minifier'),
     ngmin = require('gulp-ngmin');
 
-
 // Paths of the app
 var sassSrc = './styles/sass/**/*.sass';
 var cssDest = './styles/css/';
@@ -73,7 +72,9 @@ gulp.task('compress:js', function() {
 
 gulp.task('minify:html', function() {
   gulp.src(htmlSrc)
-    .pipe(htmlmin({collapseWhitespace: true}))
+    .pipe(htmlmin({
+        collapseWhitespace: true
+    }))
     .pipe(gulp.dest('./scripts'))
 });
 

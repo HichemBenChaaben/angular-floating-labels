@@ -1,8 +1,9 @@
-(function(angular, undefined) {
+(function() {
 
   'use strict';
 
-  angular.module.controller('ContactCtrl as ct', contactme);
+  angular.module('app')
+    .controller('ContactCtrl as ct', contactme);
 
   contactme.$inject = ['$scope'];
 
@@ -12,4 +13,4 @@
     vm.things = ['one', 'two', 'three'];
   };
 
-})(angular);
+})();

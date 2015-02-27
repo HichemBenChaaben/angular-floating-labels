@@ -31,8 +31,18 @@
             if(arg.length > 10) {
                 console.log('too long');
             }
-        }
+        };
 
+        $scope.checked = true;
+
+        $scope.doSomething = function() {
+            console.log('Im the function doSomething');
+        }
+        $scope.hello = 'i\'m a checkbox';
+
+        $scope.dataSet = ['one', 'two', 'three'];
+        $scope.hint = 'this is a hint from the controller';
+        $scope.labelSel = 'this is a hint from the controller';
     };
 
 })();

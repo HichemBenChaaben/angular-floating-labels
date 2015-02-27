@@ -7,7 +7,6 @@ var gulp = require('gulp'),
     htmlmin = require('gulp-html-minifier'),
     ngmin = require('gulp-ngmin');
 
-
 // Paths of the app
 var sassSrc = './styles/sass/**/*.sass';
 var cssDest = './styles/css/';
@@ -73,11 +72,13 @@ gulp.task('compress:js', function() {
 
 gulp.task('minify:html', function() {
   gulp.src(htmlSrc)
-    .pipe(htmlmin({collapseWhitespace: true}))
+    .pipe(htmlmin({
+        collapseWhitespace: true
+    }))
     .pipe(gulp.dest('./scripts'))
 });
 
-gulp.task('build', ['ngmin', 'compress:js', 'minify:html'], function() {
+gulp.task('build', ['styles', 'autoprefixer', 'jshint'], function() {
     // build task copy files to the build folder as min and src
     console.log('The build was created successfully xD');
 });

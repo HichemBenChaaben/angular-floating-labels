@@ -9,5 +9,6 @@
             $location.hash(id);
             $anchorScroll();
         };
+        vm.checkboxMessage = 'check me please';
     };
 })();

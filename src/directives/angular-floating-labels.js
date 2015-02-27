@@ -28,11 +28,11 @@
                             errorClass = '';
                         $scope.chars = $attrs.value.length;
 
-                        if($scope.chars >= $attrs.maxLength - 5) {
+                        if ($scope.chars >= $attrs.maxLength - 5) {
                             errorClass = 'js-char-counter-max';
                         }
                         // set of typed values should be after input element
-                        var tmplMax = '<span class="js-char-counter ' + errorClass +'">' +
+                        var tmplMax = '<span class="js-char-counter ' + errorClass + '">' +
                             '<span class="js-type">{{chars}}</span>/' + max + '</span>';
 
                         tmplMax = $compile(tmplMax)($scope);
@@ -68,9 +68,9 @@
 
                     // Add a floating label class
                     function addFl() {
-                        $element.addClass('js-field-has-value');
-                    }
-                    // remove a floating label class
+                            $element.addClass('js-field-has-value');
+                        }
+                        // remove a floating label class
                     function removeFl() {
                         $element.removeClass('js-field-has-value');
                     }
@@ -109,7 +109,7 @@
                         .addClass('fl-frm__el fl-frm__el--sel placeholder')
                         .after('<span class="fl-frm__lbl-txt">' + placeholderVal + '</span>');
                 }
-            }
+            };
         })
         // Directive for checkboxes
         .directive('flCheckbox', function() {
@@ -137,9 +137,8 @@
                 link: function($scope, $element, $attrs) {
                     var tmpl = '<span class="fl-frm__lbl-txt--bool fl-frm__lbl-txt--bool--radio"></span>',
                         radioLabl = '<span class="fl-frm__lbl-txt--bool__data-label">' +
-                            $attrs.label +
-                            '</span>';
-
+                        $attrs.label +
+                        '</span>';
                     $element.addClass('fl-frm__el--bool')
                         .wrap('<label class="fl-frm__lbl fl-frm__lbl--bool">')
                         .after(radioLabl)

@@ -1,1 +1,7 @@
-!function(t){"use strict";function n(){var t=this;t.things=["one","two","three"]}t.module.controller("ContactCtrl as ct",n),n.$inject=["$scope"]}(angular);
+!function(){"use strict";function t(){var t=this;t.things=["one","two","three"]}angular.module("app").controller("ContactCtrl as ct",t),t.$inject=["$scope"]}();e() {
+    var vm = this;
+
+    vm.things = ['one', 'two', 'three'];
+  };
+
+})();

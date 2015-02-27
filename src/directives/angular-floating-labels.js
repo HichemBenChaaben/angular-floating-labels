@@ -123,10 +123,16 @@
                     hint: '@'
                 },
                 templateUrl: 'src/directives/angular-floating-labels-select.html',
-                controller: function($scope, $attrs) {
+                controller: function($scope, $attrs, $element) {
                     $scope.dataSet = $scope.$parent.dataSet;
                     $scope.hint = $scope.hint;
                     $scope.label = $scope.label;
+
+                    console.log($element);
+                    $element.bind('change', function() {
+                        console.log(this);
+                        $element.find('select').addClass('js-field-has-value');
+                    });
                 }
             }
 

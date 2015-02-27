@@ -96,8 +96,8 @@
                             <h3>Drop down lists</h3>
 
                             <h4>Custom with a repeater</h4>
-                            <fl-sel dataset="{{dataset}}" hint="{{hint}}"></fl-sel>
-                            <fl-sel dataset="{{dataset}}" hint="static hint"></fl-sel>
+                            <fl-sel dataset="{{dataset}}" label='{{labelSel}}' hint="{{hint}}"></fl-sel>
+                            <fl-sel dataset="{{dataset}}" label="static label" hint="static hint"></fl-sel>
                             <div ng-include="'src/views/_countries-dropdown.html'"></div>
                             <hr/>
                             <textarea fl-label value=""
@@ -110,12 +110,12 @@
                             <hr/>
                             <label class="fl-frm__lbl">
                                 <textarea cols="20"
-                                rows="20"
-                                value=""
-                                placeholder="Textarea with character counter"
-                                class="fl-frm__el fl-frm__el--area"
-                                maxlength="50"
-                                data-char-counter=""></textarea>
+                                        rows="20"
+                                        value=""
+                                        placeholder="Textarea with character counter"
+                                        class="fl-frm__el fl-frm__el--area"
+                                        maxlength="50"
+                                        data-char-counter=""></textarea>
                                 <span class="js-char-counter"><span data-current-char-count="">0</span>/50</span>
                                 <span class="fl-frm__lbl-txt fl-frm__lbl-txt--area">Textarea with char counter</span>
                                 <span class="fl-frm__tooltip">Here's a handy little hint</span>

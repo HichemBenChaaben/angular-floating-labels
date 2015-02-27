@@ -42,6 +42,7 @@
 
         $scope.dataSet = ['one', 'two', 'three'];
         $scope.hint = 'this is a hint from the controller';
+        $scope.labelSel = 'this is a hint from the controller';
     };
 
 })();

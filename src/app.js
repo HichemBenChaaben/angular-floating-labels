@@ -1,4 +1,4 @@
-(function(window) {
+(function() {
 
     'use strict';
 
@@ -47,4 +47,4 @@
             $urlRouterProvider.otherwise('/');
         });
 
-})(window, undefined);
+})();

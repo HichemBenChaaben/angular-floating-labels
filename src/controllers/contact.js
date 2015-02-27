@@ -1,4 +1,4 @@
-(function(angular, undefined) {
+(function(window) {
 
   'use strict';
 
@@ -12,4 +12,4 @@
     vm.things = ['one', 'two', 'three'];
   };
 
-})(angular);
+})(window, undefined);

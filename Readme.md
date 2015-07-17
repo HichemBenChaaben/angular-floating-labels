@@ -4,3 +4,4 @@
 
 Angular directives for creating floating labels with angular js
 
+<img src="https://lh3.googleusercontent.com/zo49hJTLrhq0psLdUADuL8ERqKA_1KfJKo_628UUUb1o_nVW_7uEmo-3HQEO4RPzjOiIlP2jPLbXMt0=w1804-h818-rw">
